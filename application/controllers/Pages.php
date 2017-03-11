@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pages extends CI_Controller
 {
+		
     // Prototyybi pdf lk 1; Default
     public function index()
     {
@@ -62,6 +63,7 @@ class Pages extends CI_Controller
         $this->load->view('pages/seaded', $data);
         $this->load->view('templates/footer');
     }
+		
 }
 
 ?>
