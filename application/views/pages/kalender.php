@@ -9,17 +9,12 @@
             </button>
             <a class="navbar-brand" href="#">Spinat</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" placeholder="Email/kasutajanimi" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Parool" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Logi sisse</button>
-            </form>
-        </div><!--/.navbar-collapse -->
+        <ul id="navbar" class="nav navbar-nav navbar-right">
+            <li class="active"><a href="<?php echo site_url('kalender'); ?>">Toitumispäevik</a></li>
+			<li><a href="<?php echo site_url('lisa_toiduaine'); ?>">Toiduained</a></li>
+			<li><a href="<?php echo site_url('seaded'); ?>">Seaded</a></li>
+            <li><a href="<?php echo site_url('pealeht'); ?>">Logi välja</a></li>
+        </ul>
     </div>
 </nav>
 
