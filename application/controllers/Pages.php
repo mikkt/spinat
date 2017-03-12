@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-session_start();
 
 class Pages extends CI_Controller
 {

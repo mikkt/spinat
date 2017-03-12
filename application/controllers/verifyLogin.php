@@ -12,8 +12,8 @@ class verifyLogin extends CI_Controller
 	function index()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username', 'Username', 'required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'required|xss_clean|callback_check_database');
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required|callback_check_database');
 		
 		if($this->form_validation->run() == FALSE)
 		{
@@ -30,8 +30,13 @@ class verifyLogin extends CI_Controller
 		$username = $this->input->post('username');
 		
 		$result = $this->user->login($username, $password);
-		
-		if ($result)
+		/*var_dump($result);
+		echo '<pre>';
+		echo print_r($result);
+		echo '</pre>';
+		exit;
+		*/
+		if (!empty($result))
 		{
 			$sess_array = array();
 			foreach ($result as $row)
@@ -47,7 +52,7 @@ class verifyLogin extends CI_Controller
 		else
 		{
 			$this->form_validation->set_message('check_database', 'Vale kasutajanimi või parool');
-			return false;
+			return FALSE;
 		}
 	}
 }

@@ -9,4 +9,5 @@
 		echo $row->username;
 		echo $row->email;
 	}
+	var_dump(session_destroy());
 	

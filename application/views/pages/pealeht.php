@@ -1,4 +1,10 @@
-
+<?php
+if (isset($_GET['debug'])) {
+	echo '<pre>';
+	print_r($_SESSION);
+	echo '</pre>';
+	break;
+}?>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
