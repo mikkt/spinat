@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -25,10 +25,8 @@
             <h2>Registreeru</h2>
 			<?php echo validation_errors(); ?>
             <?php echo form_open('UserController'); ?>
-                <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="text" id="username" class="form-control" placeholder="Kasutajanimi" name="username">
                 <input type="email" id="email" class="form-control" placeholder="Email" name="email">
-                <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" id="password" class="form-control" placeholder="Parool" name="password">
                 <input type="password" id="pwdrepeat" class="form-control" placeholder="Korda parooli" name="pwdrepeat">
                 
@@ -38,5 +36,5 @@
         </div>
 
     </div>
-
+</div>
     <hr>

@@ -39,7 +39,7 @@ if (isset($_GET['debug'])) {
     <div class="container">
         <h1>Tere tulemast!</h1>
         <p>Projekt Spinat. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Loe rohkem &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="#">Loe rohkem &raquo;</a></p>
     </div>
 </div>
 
@@ -48,7 +48,7 @@ if (isset($_GET['debug'])) {
 		<h2>Pole veel liige?</h2>
 	</div>
 	<div class="col-md-6 text-center">
-		<a href="<?php echo site_url('Login/registreeru'); ?>"type="button" class="btn btn-success btn-lg">Liitu kohe!</a> 
+		<a href="<?php echo site_url('Login/registreeru'); ?>" class="btn btn-success btn-lg">Liitu kohe!</a> 
 	</div>
 </div>
 	
