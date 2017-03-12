@@ -1,28 +1,39 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+session_start();
 
 class Pages extends CI_Controller
 {
+	
+	function __construct()
+	{
+		parent::__construct();
+	}
 		
     // Prototyybi pdf lk 1; Default
     public function index()
     {
-        $data['title'] = 'Pealeht';
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('pages/pealeht', $data);
-        $this->load->view('templates/footer');
+        
+		if($this->session->userdata('logged_in'))
+		{
+			$session_data = $this->session->userdata('logged_in');
+			$data['username'] = $session_data['username'];
+			$data['title'] = 'Lisa toiduaine';
+			$this->load->view('templates/header', $data);
+			$this->load->view('pages/lisa_toiduaine', $data);
+			$this->load->view('templates/footer');
+		}
     }
 
     // Prototyybi pdf lk 3
-    public function registreeru()
+    /*public function registreeru()
     {
         $data['title'] = 'Registreeru';
 
         $this->load->view('templates/header', $data);
         $this->load->view('pages/registreeru', $data);
         $this->load->view('templates/footer');
-    }
+    }*/
 
     // Prototyybi pdf lk 2
     public function kalender()
@@ -64,6 +75,12 @@ class Pages extends CI_Controller
         $this->load->view('templates/footer');
     }
 		
+	public function logout()
+	{
+		$this->session->unset_userdata('logged_in');
+		session_destroy();
+		redirect('login', 'refresh');
+	}
 }
 
 ?>

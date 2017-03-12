@@ -13,7 +13,7 @@
             <li><a href="<?php echo site_url('kalender'); ?>">Toitumispäevik</a></li>
 			<li class="active"><a href="<?php echo site_url('lisa_toiduaine'); ?>">Toiduained</a></li>
 			<li><a href="<?php echo site_url('seaded'); ?>">Seaded</a></li>
-            <li><a href="<?php echo site_url('pealeht'); ?>">Logi välja</a></li>
+            <li><a href="<?php echo site_url('logout'); ?>">Logi välja</a></li>
         </ul>
     </div>
 </nav>

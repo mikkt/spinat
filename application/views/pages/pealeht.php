@@ -9,18 +9,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Spinat</a>
+            <a class="navbar-brand" href="">Spinat</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" placeholder="Email/kasutajanimi" class="form-control">
+			<?php echo validation_errors(); ?>
+			<?php echo form_open('verifyLogin'); ?>
+                <div class="navbar-form navbar-right">
+				<div class="form-group">
+					<input type="text" placeholder="Kasutajanimi" class="form-control" size="30" id="username" name="username"/>
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Parool" class="form-control">
+                    <input type="password" placeholder="Parool" class="form-control" id="password" name="password"/>
                 </div>
-                <button type="submit" class="btn btn-success">Logi sisse</button>
-            </form>
+                <input type="submit" class="btn btn-success" value="Logi sisse"/>
+				</div>
+			</form>
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
@@ -39,7 +42,7 @@
 		<h2>Pole veel liige?</h2>
 	</div>
 	<div class="col-md-6 text-center">
-		<a href="<?php echo site_url('registreeru'); ?>" type="button" class="btn btn-success btn-lg">Liitu kohe!</a>
+		<a href="<?php echo site_url('login/registreeru'); ?>"type="button" class="btn btn-success btn-lg">Liitu kohe!</a> 
 	</div>
 </div>
 	
