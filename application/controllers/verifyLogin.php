@@ -9,23 +9,23 @@ class verifyLogin extends CI_Controller
 		$this->load->model('user', '', TRUE);
 	}
 
-	function index()
+	public function index()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username', 'Username', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required|callback_check_database');
+		$this->form_validation->set_rules('username', 'Username', 'trim|required');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_database');
 		
 		if($this->form_validation->run() == FALSE)
 		{
-			redirect('login', 'refresh');
+			redirect('Login', 'refresh');
 		}
 		else
 		{
-			redirect('pages');
+			redirect('Pages');
 		}
 	}
 	
-	function check_database($password)
+	public function check_database($password)
 	{
 		$username = $this->input->post('username');
 		

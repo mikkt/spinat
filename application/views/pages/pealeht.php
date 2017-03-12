@@ -48,7 +48,7 @@ if (isset($_GET['debug'])) {
 		<h2>Pole veel liige?</h2>
 	</div>
 	<div class="col-md-6 text-center">
-		<a href="<?php echo site_url('login/registreeru'); ?>"type="button" class="btn btn-success btn-lg">Liitu kohe!</a> 
+		<a href="<?php echo site_url('Login/registreeru'); ?>"type="button" class="btn btn-success btn-lg">Liitu kohe!</a> 
 	</div>
 </div>
 	

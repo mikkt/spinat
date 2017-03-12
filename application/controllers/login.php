@@ -7,7 +7,7 @@ class Login extends CI_Controller
 		parent::__construct();
 	}
 	
-	function index()
+	public function index()
 	{
 		$data['title'] = 'Pealeht';
 		

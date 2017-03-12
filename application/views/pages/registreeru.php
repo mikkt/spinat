@@ -7,19 +7,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Spinat</a>
+            <a class="navbar-brand" href="">Spinat</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" placeholder="Email/kasutajanimi" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Parool" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Logi sisse</button>
-            </form>
-        </div><!--/.navbar-collapse -->
     </div>
 </nav>
 
@@ -34,18 +23,15 @@
         </div>
         <div class="col-md-6">
             <h2>Registreeru</h2>
-            <form>
+			<?php echo validation_errors(); ?>
+            <?php echo form_open('UserController'); ?>
                 <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="text" id="inputUsername" class="form-control" placeholder="Kasutajanimi" required autofocus>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required>
+                <input type="text" id="username" class="form-control" placeholder="Kasutajanimi" name="username">
+                <input type="email" id="email" class="form-control" placeholder="Email" name="email">
                 <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Parool" required>
-                <!--<input type="password" id="inputPassword" class="form-control" placeholder="Korda parooli" required>-->
-                <!--<div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>-->
+                <input type="password" id="password" class="form-control" placeholder="Parool" name="password">
+                <input type="password" id="pwdrepeat" class="form-control" placeholder="Korda parooli" name="pwdrepeat">
+                
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Registreeru</button>
             </form>
 

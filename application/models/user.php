@@ -20,4 +20,9 @@ Class User extends CI_Model
 			return false;
 		}
 	}
+	
+	function insert($data)
+	{
+		return $this->db->insert('user', $data);
+	}
 }
