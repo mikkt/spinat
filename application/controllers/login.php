@@ -9,7 +9,7 @@ class Login extends CI_Controller
 	
 	public function index()
 	{
-		$data['title'] = 'Pealeht';
+		$data['title'] = 'Spinat';
 		
 		$this->load->helper(array('form'));
 		$this->load->view('templates/header', $data);
@@ -26,6 +26,9 @@ class Login extends CI_Controller
         $this->load->view('templates/footer');
     }
 	
+	/*
+	Viib pages/test lehele. Leht igasuguste testimiste jaoks. Lõppversioonis peaks kustutama.
+	*/
 	function test()
 	{
 		$this->load->view('pages/test');

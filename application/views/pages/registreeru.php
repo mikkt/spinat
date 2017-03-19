@@ -24,7 +24,7 @@
         <div class="col-md-6">
             <h2>Registreeru</h2>
 			<?php echo validation_errors(); ?>
-            <?php echo form_open('UserController'); ?>
+            <?php echo form_open('UserController/createAccount'); ?>
                 <input type="text" id="username" class="form-control" placeholder="Kasutajanimi" name="username">
                 <input type="email" id="email" class="form-control" placeholder="Email" name="email">
                 <input type="password" id="password" class="form-control" placeholder="Parool" name="password">

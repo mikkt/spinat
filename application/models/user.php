@@ -1,4 +1,8 @@
 <?php 
+
+/*
+Siia klassi lähevad kõik funktsioonid mis pöörduvad andmebaasi User tabeli poole.
+*/
 Class User extends CI_Model
 {
 	function login($username, $password)

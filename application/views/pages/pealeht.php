@@ -19,7 +19,7 @@ if (isset($_GET['debug'])) {
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 			<?php echo validation_errors(); ?>
-			<?php echo form_open('verifyLogin'); ?>
+			<?php echo form_open('UserController/verifyLogin'); ?>
                 <div class="navbar-form navbar-right">
 				<div class="form-group">
 					<input type="text" placeholder="Kasutajanimi" class="form-control" size="30" id="username" name="username"/>

@@ -9,7 +9,7 @@ class Pages extends CI_Controller
 		parent::__construct();
 	}
 		
-    // Prototyybi pdf lk 1; Default
+    // Pealeht. Praegu suunab lisa_toiduaine lehele, kui kalender valmis siis peaks muutma ümber et suunaks kalendri lehele.
     public function index()
     {
         
@@ -28,16 +28,6 @@ class Pages extends CI_Controller
 		}
     }
 
-    // Prototyybi pdf lk 3
-    /*public function registreeru()
-    {
-        $data['title'] = 'Registreeru';
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('pages/registreeru', $data);
-        $this->load->view('templates/footer');
-    }*/
-
     // Prototyybi pdf lk 2
     public function kalender()
     {
@@ -51,7 +41,7 @@ class Pages extends CI_Controller
 		}
     }
 
-    // Prototyybi pdf lk 9
+    // Prototyybi pdf lk 9; Peaks tegema uue view toiduainete otsimiseks nagu prototüübi viimasel lehel näha.
     public function lisa_toiduaine()
     {
 		if($this->session->userdata('logged_in'))
@@ -89,16 +79,5 @@ class Pages extends CI_Controller
 			$this->load->view('templates/footer');
 		}
     }
-		
-	public function logout()
-	{
-		if($this->session->userdata('logged_in'))
-		{
-		$this->session->unset_userdata('logged_in');
-		session_destroy();
-		redirect('login', 'refresh');
-		}
-	}
+	
 }
-
-?>
