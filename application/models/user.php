@@ -8,7 +8,8 @@ Class User extends CI_Model
 	function login($username, $password)
 	{
 		$this->db->select('user_id, username, password');
-		$this->db->from('user');
+		// Kasutab nüüd andmebaasi view'd
+		$this->db->from('user_login_view');
 		$this->db->where('username', $username);
 		$this->db->where('password', MD5($password));
 		$this->db->limit(1);
@@ -25,8 +26,10 @@ Class User extends CI_Model
 		}
 	}
 	
-	function insert($data)
+	function insertUser($data)
 	{
-		return $this->db->insert('user', $data);
+		// Kasutab andmebaasi insertUser proceduret
+		$stored_procedure = 'CALL insertUser(?,?,?)';
+		return $this->db->query($stored_procedure, array('i_username'=>$data['username'], 'i_password'=>$data['password'], 'i_email'=>$data['email']));
 	}
 }

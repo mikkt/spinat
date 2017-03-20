@@ -94,8 +94,7 @@ Class UserController extends CI_Controller
 				'email' => $this->input->post('email')
 			);
 			
-			// Selle osa peaks liigutama models/User.php alla uue funktsioonina.
-			if ($this->user->insert($userData))
+			if ($this->user->insertUser($userData))
 			{
 				redirect('Login');
 			}
