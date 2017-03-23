@@ -79,5 +79,23 @@ class Pages extends CI_Controller
 			$this->load->view('templates/footer');
 		}
     }
+
+    public function kontakt()
+    {
+        if($this->session->userdata('logged_in'))
+        {
+            $this->load->library('googlemaps');
+            $this->googlemaps->initialize();
+            $data['map']=$this->googlemaps->create_map();
+
+
+            $data['title'] = 'Kontakt';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('pages/kontakt', $data);
+            $this->load->view('templates/footer');
+        }
+    }
+
 	
 }
