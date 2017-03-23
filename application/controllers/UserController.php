@@ -82,8 +82,9 @@ Class UserController extends CI_Controller
 		if ($this->form_validation->run() == FALSE)
 		{
 			$data['title'] = 'Registreeru';
-			$this->load->view('templates/header');
-			$this->load->view('pages/registreeru', $data);
+			$this->load->view('templates/header',$data);
+            $this->load->view('templates/nav_guest');
+            $this->load->view('pages/registreeru', $data);
 			$this->load->view('templates/footer');
 		}
 		else

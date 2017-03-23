@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">Spinat</a>
+            <a class="navbar-brand" href="<?php echo site_url('pages'); ?>">Spinat</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <?php echo validation_errors(); ?>

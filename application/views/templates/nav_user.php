@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Spinat</a>
+            <a class="navbar-brand" href="<?php echo site_url('pages/'); ?>">Spinat</a>
         </div>
         <ul id="navbar" class="nav navbar-nav navbar-right">
             <li class="active"><a href="<?php echo site_url('pages/kalender'); ?>">Toitumispäevik</a></li>

@@ -38,7 +38,7 @@ class Pages extends CI_Controller
 
             $this->load->helper(array('form'));
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/navbar_default');
+            $this->load->view('templates/nav_guest');
             $this->load->view('pages/pealeht', $data);
             $this->load->view('templates/footer');
         }
@@ -53,7 +53,7 @@ class Pages extends CI_Controller
             $data['title'] = 'Registreeru';
 
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/navbar_default');
+            $this->load->view('templates/nav_guest');
             $this->load->view('pages/registreeru', $data);
             $this->load->view('templates/footer');
         }
@@ -67,7 +67,7 @@ class Pages extends CI_Controller
 			$data['title'] = 'Kalender';
 
 			$this->load->view('templates/header', $data);
-            $this->load->view('templates/navbar_loggedin');
+            $this->load->view('templates/nav_user');
             $this->load->view('pages/kalender', $data);
 			$this->load->view('templates/footer');
 		}
@@ -84,7 +84,7 @@ class Pages extends CI_Controller
 			$data['title'] = 'Lisa toiduaine';
 
 			$this->load->view('templates/header', $data);
-            $this->load->view('templates/navbar_loggedin');
+            $this->load->view('templates/nav_user');
             $this->load->view('pages/lisa_toiduaine', $data);
 			$this->load->view('templates/footer');
 		}
@@ -97,7 +97,7 @@ class Pages extends CI_Controller
 		{
 			$data['title'] = 'Päev';
 			$this->load->view('templates/header', $data);
-			$this->load->view('templates/navbar_loggedin');
+            $this->load->view('templates/nav_user');
 			$this->load->view('pages/paev', $data);
 			$this->load->view('templates/footer');
 		}else{
@@ -115,7 +115,7 @@ class Pages extends CI_Controller
 			$data['title'] = 'Seaded';
 
 			$this->load->view('templates/header', $data);
-            $this->load->view('templates/navbar_loggedin');
+            $this->load->view('templates/nav_user');
 			$this->load->view('pages/seaded', $data);
 			$this->load->view('templates/footer');
 		}
@@ -145,9 +145,9 @@ class Pages extends CI_Controller
 
         if($this->session->userdata('logged_in'))
         {
-            $this->load->view('templates/navbar_loggedin');
+            $this->load->view('templates/nav_user');
         }else{
-            $this->load->view('templates/navbar_default');
+            $this->load->view('templates/nav_guest');
         }
 
         $this->load->view('pages/kontakt', $data);
