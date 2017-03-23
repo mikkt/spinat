@@ -96,7 +96,7 @@ Class UserController extends CI_Controller
 			
 			if ($this->user->insertUser($userData))
 			{
-				redirect('Login');
+				redirect('Pages');
 			}
 		}
 	}
@@ -111,7 +111,7 @@ Class UserController extends CI_Controller
 		{
 		$this->session->unset_userdata('logged_in');
 		session_destroy();
-		redirect('login', 'refresh');
+		redirect('Pages', 'refresh');
 		}
 	}
 }
