@@ -1,16 +1,16 @@
 <div class="container" style="padding-top: 80px;">
 	<div class="panel panel-default">
-	<div class="panel-heading">Otsi toiduainet</div>
+	<div class="panel-heading">Otsi toiduainet <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Sisesta sõne, et tabel kuvaks need toiduained, mille nimes sisaldub sisestatud tekst"/></div>
 	<div class="panel-body">
-		<input type="text" class="form-control" id="foodName" name="foodNameSearch" placeholder="Otsi toiduainet">
+		<input type="text" class="form-control" id="foodSearch" name="foodNameSearch" placeholder="Otsi toiduainet" >
 		<div class="table-responsive" style="padding-top: 10px;">
 		<table class="table table-bordered">
 			<tr>
-				<td>Nimi</td>
-				<td>Kalorid 100g kohta (kcal)</td>
-				<td>Süsivesikud (g)</td>
-				<td>Rasvad (g)</td>
-				<td>Valgud (g)</td>
+				<th>Nimi</td>
+				<th>Kalorid 100g kohta (kcal)</td>
+				<th>Süsivesikud (g)</td>
+				<th>Rasvad (g)</td>
+				<th>Valgud (g)</td>
 			</tr>
 			<?php foreach($ingredients as $ingredient){?>
 			<tr>

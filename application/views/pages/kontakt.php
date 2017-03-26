@@ -13,7 +13,7 @@
     <div class="panel-body">
         <?php echo $map['js'];?>
         <?php echo $map['html'];?>
+
     </div>
 </div>
     </div>
-
