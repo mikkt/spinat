@@ -7,7 +7,8 @@ $this->load->helper('url');
 <head>
     <meta charset="utf-8">
     <title><?php echo $title; ?></title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>media/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>media/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>media/css/style.css">
 
 </head>
 <body>

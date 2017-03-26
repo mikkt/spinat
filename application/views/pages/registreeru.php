@@ -11,10 +11,14 @@
             <h2>Registreeru</h2>
 			<?php echo validation_errors(); ?>
             <?php echo form_open('UserController/createAccount'); ?>
-                <input type="text" id="username" class="form-control" placeholder="Kasutajanimi" name="username">
-                <input type="email" id="email" class="form-control" placeholder="Email" name="email">
-                <input type="password" id="password" class="form-control" placeholder="Parool" name="password">
-                <input type="password" id="pwdrepeat" class="form-control" placeholder="Korda parooli" name="pwdrepeat">
+            <label for="username">Kasutajanimi</label>
+            <input type="text" id="username" class="form-control" placeholder="Kasutajanimi" name="username">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="Email" name="email">
+            <label for="password">Parool</label>
+            <input type="password" id="password" class="form-control" placeholder="Parool" name="password">
+            <label for="pwdrepeat">Korda parooli</label>
+            <input type="password" id="pwdrepeat" class="form-control" placeholder="Korda parooli" name="pwdrepeat">
                 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Registreeru</button>
             </form>

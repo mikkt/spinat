@@ -3,9 +3,9 @@
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-12">
-            <h2>Veebruar</h2>
-            <p>Siia tuleb kalender</p>
-
+            <div class="table-responsive">
+                <?php echo $kalender; ?>
+            </div>
         </div>
     </div>
 

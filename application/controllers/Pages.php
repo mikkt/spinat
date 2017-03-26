@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pages extends CI_Controller
 {
-	
+
 	function __construct()
 	{
 		parent::__construct();
@@ -16,10 +16,11 @@ class Pages extends CI_Controller
         {
             $session_data = $this->session->userdata('logged_in');
             $data['username'] = $session_data['username'];
-            $data['title'] = 'Lisa toiduaine';
+            $this->paev(date("Y"), date("m"), date("j"));
+            /*$data['title'] = 'Lisa toiduaine';
             $this->load->view('templates/header', $data);
             $this->load->view('pages/lisa_toiduaine', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('templates/footer');*/
         }
         else
         {
@@ -65,6 +66,30 @@ class Pages extends CI_Controller
 		if($this->session->userdata('logged_in'))
 		{
 			$data['title'] = 'Kalender';
+            $data['day'] = date("d");
+            $data['month'] = date("F");
+
+            // Kalendri loomine
+            $prefs = array(
+                'start_day'         => 'monday',
+                'month_type'        => 'long',
+                'day_type'          => 'long',
+            );
+
+            $site = site_url('pages/paev');
+            $prefs['template'] = array(
+                'table_open'                => '<table border="1" class="table table-bordered">',
+                'cal_cell_start'            => '<td>',
+                'cal_cell_no_content'       => '<h4><a href="' . $site . '/' . date("Y") . '/' . date("m") . '/{day}">{day}</a></h4>',
+                'cal_cell_end'              => '</td>',
+                'cal_cell_start_today'      => '<td class="info">',
+                'cal_cell_no_content_today' => '<h4><strong><a href="' . $site . '/' . date("Y") . '/' . date("m") . '/{day}">{day}</a></strong></h4>',
+                'cal_cell_end_today'        => '</td>',
+                'heading_title_cell'        => '<th colspan="{colspan}"><h3>{heading}</h3></th>'
+            );
+
+            $this->load->library('calendar', $prefs);
+            $data['kalender'] = $this->calendar->generate( );
 
 			$this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
@@ -91,11 +116,30 @@ class Pages extends CI_Controller
     }
 
     // Prototyybi pdf lk 4
-    public function paev()
+    public function paev($year, $month, $day)
     {
-		if($this->session->userdata('logged_in'))
+		if($this->session->userdata('logged_in') && $year && $month && $day)
 		{
+            $this->load->library('calendar');
+            $this->load->helper('date');
+
 			$data['title'] = 'Päev';
+
+            $datestring = 'Year: %Y Month: %m Day: %d - %h:%i %a';
+            $time = time();
+
+            if (date('Ymd') == date('Ymd', strtotime($year . $month . $day))) {
+                $data['is_today'] = True;
+            } else {
+                $data['is_today'] = False;
+            }
+
+			#$data['today'] = $this->calendar->get_day_names('long')[0];
+			$data['today'] = mdate('%l', $time);
+            $data['year'] = $year;
+            $data['month'] = $this->calendar->get_month_name($month);
+            $data['day'] = $day;
+
 			$this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
 			$this->load->view('pages/paev', $data);

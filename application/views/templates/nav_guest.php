@@ -14,9 +14,11 @@
             <?php echo form_open('UserController/verifyLogin'); ?>
             <div class="navbar-form navbar-right">
                 <div class="form-group">
+                    <label for="username">Kasutajanimi</label>
                     <input type="text" placeholder="Kasutajanimi" class="form-control" size="30" id="username" name="username"/>
                 </div>
                 <div class="form-group">
+                    <label for="password">Parool</label>
                     <input type="password" placeholder="Parool" class="form-control" id="password" name="password"/>
                 </div>
                 <input type="submit" class="btn btn-success" value="Logi sisse"/>
