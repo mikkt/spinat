@@ -18,18 +18,52 @@ Class UserController extends CI_Controller
 	*/
 	public function verifyLogin()
 	{
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
-		
-		if($this->form_validation->run() == FALSE)
-		{
-			redirect('Login', 'refresh');
-		}
-		else
-		{
-			redirect('Pages');
-		}
+        // Google auth
+        $this->load->library('Googleplus');
+        $CLIENT_ID = '561474587766-j2qniuago771cri440rb8us4thq32gf2.apps.googleusercontent.com';
+        $CLIENT_SECRET = 'qzhnzh7Nc3b6tBcKT8cDEoIE';
+        $APPLICATION_NAME = "Spinat";
+
+        $client = new Google_Client();
+        $client->setApplicationName($APPLICATION_NAME);
+        $client->setClientId($CLIENT_ID);
+        $client->setClientSecret($CLIENT_SECRET);
+        $client->setRedirectUri('http://localhost/spinat/index.php/UserController/verifyLogin/');
+        $client->setScopes('email');
+
+        $plus = new Google_Service_Plus($client);
+
+        # $_GET['code'] on Googlega logimise puhul.
+        if(isset($_GET['code'])){
+            $client->authenticate($_GET['code']);
+            $_SESSION['access_token'] = $client->getAccessToken();
+
+            $me = $plus->people->get('me');
+
+            #$name = $me->getDisplayName();
+            #$email = $me->getEmails()[0]->value;
+            $sess_array = array(
+                'user_id' => $_GET['code'],
+                'username' => $me->getDisplayName(),
+                'is_google' => True,
+            );
+            $this->session->set_userdata('logged_in', $sess_array);
+
+            redirect('Pages');
+        } else {
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
+
+            if($this->form_validation->run() == FALSE)
+            {
+                redirect('Pages', 'refresh');
+            }
+            else
+            {
+                redirect('Pages');
+            }
+        }
 	}
 	
 	/*
@@ -54,7 +88,8 @@ Class UserController extends CI_Controller
 			{
 				$sess_array = array(
 					'user_id' => $row->user_id,
-					'username' => $row->username
+					'username' => $row->username,
+                    'is_google' => False,
 				);
 				$this->session->set_userdata('logged_in', $sess_array);
 			}
@@ -106,14 +141,22 @@ Class UserController extends CI_Controller
 	Funktsioon kasutaja välja logimiseks. Kui kasutaja on sisse logitud ja see funktsioon callitakse,
 	siis session data kustub ja kasutaja redirectitakse avalehele.
 	*/
+	// http://localhost/spinat/index.php/UserController/logout
 	public function logout()
 	{
+        $_REQUEST["logout"] = "t";
+
 		if($this->session->userdata('logged_in'))
 		{
 		$this->session->unset_userdata('logged_in');
 		session_destroy();
 		redirect('Pages', 'refresh');
 		}
+        if(isset($_REQUEST['logout'])){
+
+            session_unset();
+            redirect('Pages', 'refresh');
+        }
 	}
 }
 		

@@ -8,6 +8,8 @@ class Pages extends CI_Controller
 	{
 		parent::__construct();
 	}
+
+
 		
     // Pealeht. Praegu suunab lisa_toiduaine lehele, kui kalender valmis siis peaks muutma ümber et suunaks kalendri lehele.
     public function index()
@@ -37,6 +39,9 @@ class Pages extends CI_Controller
 
             $data['title'] = 'Spinat';
 
+            $data['google_auth'] = $this->get_google_login();
+            $data['username'] = $this->get_username();
+
             $this->load->helper(array('form'));
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav_guest');
@@ -52,6 +57,7 @@ class Pages extends CI_Controller
             redirect('Pages');
         }else {
             $data['title'] = 'Registreeru';
+            $data['google_auth'] = $this->get_google_login();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav_guest');
@@ -91,6 +97,8 @@ class Pages extends CI_Controller
             $this->load->library('calendar', $prefs);
             $data['kalender'] = $this->calendar->generate( );
 
+            $data['username'] = $this->get_username();
+
 			$this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
             $this->load->view('pages/kalender', $data);
@@ -107,6 +115,7 @@ class Pages extends CI_Controller
 		if($this->session->userdata('logged_in'))
 		{
 			$data['title'] = 'Lisa toiduaine';
+            $data['username'] = $this->get_username();
 
 			$this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
@@ -123,6 +132,7 @@ class Pages extends CI_Controller
 			$this->data['ingredients'] = $this->Ingredient->getIngredients(); //Kasutab Ingredients modeli getIngredients funktsiooni et andmebaasist toiduained kätte saada
 			
 			$data['title'] = 'Toiduained';
+            $data['username'] = $this->get_username();
 			
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/nav_user');
@@ -156,6 +166,9 @@ class Pages extends CI_Controller
             $data['month'] = $this->calendar->get_month_name($month);
             $data['day'] = $day;
 
+
+            $data['username'] = $this->get_username();
+
 			$this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
 			$this->load->view('pages/paev', $data);
@@ -173,6 +186,7 @@ class Pages extends CI_Controller
 		if($this->session->userdata('logged_in'))
 		{
 			$data['title'] = 'Seaded';
+            $data['username'] = $this->get_username();
 
 			$this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
@@ -200,6 +214,8 @@ class Pages extends CI_Controller
         $data['map']=$this->googlemaps->create_map();
 
         $data['title'] = 'Kontakt';
+        $data['username'] = $this->get_username();
+        $data['google_auth'] = $this->get_google_login(); # Kui maps ei lae siis võib olla midagi sellega seoses.
 
         $this->load->view('templates/header', $data);
 
@@ -219,5 +235,49 @@ class Pages extends CI_Controller
     function test()
     {
         $this->load->view('pages/test');
+    }
+
+    private function get_username() {
+        if (isset($this->session->userdata('logged_in')["is_google"]) && $this->session->userdata('logged_in')["is_google"]) {
+            $username = $this->session->userdata('logged_in')["username"];
+            $username .= "[Google]";
+        } else {
+            $username = $this->session->userdata('logged_in')["username"];
+        }
+        return $username;
+    }
+
+    # Kasutaja Googlega logimise jaoks.
+    private function get_google_login() {
+        $this->load->library('Googleplus');
+        $CLIENT_ID = '561474587766-j2qniuago771cri440rb8us4thq32gf2.apps.googleusercontent.com';
+        $CLIENT_SECRET = 'qzhnzh7Nc3b6tBcKT8cDEoIE';
+        $APPLICATION_NAME = "Spinat";
+
+        $client = new Google_Client();
+        $client->setApplicationName($APPLICATION_NAME);
+        $client->setClientId($CLIENT_ID);
+        $client->setClientSecret($CLIENT_SECRET);
+        $client->setRedirectUri('http://localhost/spinat/index.php/UserController/verifyLogin/');
+        $client->setScopes('email');
+
+        $plus = new Google_Service_Plus($client);
+
+        # Kas on logitud
+        if(isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+            $client->setAccessToken($_SESSION['access_token']);
+            #$me = $plus->people->get('me');
+
+            // Nimi ja email
+            #$name = $me->getDisplayName();
+            #$email = $me->getEmails()[0]->value;
+
+            # See ei tohiks juhtuda. Kui see osa if-st tööle läheb siis on midagi valesti.
+            $logout_link = site_url('UserController/logout');
+            return $data['google_auth'] = '<a href="' . $logout_link . '" class="btn btn-primary">Logi välja?</a>';
+        } else {
+            $authUrl = $client->createAuthUrl();
+            return '<a href="' . $authUrl . '" class="btn btn-primary">Logi Googlega</a>';
+        }
     }
 }
