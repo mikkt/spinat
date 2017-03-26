@@ -2,11 +2,9 @@
 	<div class="panel panel-default">
 	<div class="panel-heading">Otsi toiduainet</div>
 	<div class="panel-body">
-		<div class="table-responsive">
+		<input type="text" class="form-control" id="foodName" name="foodNameSearch" placeholder="Otsi toiduainet">
+		<div class="table-responsive" style="padding-top: 10px;">
 		<table class="table table-bordered">
-			<tr>
-				<input type="text" class="form-control" id="foodName" name="foodNameSearch" placeholder="Otsi toiduainet">
-			</tr>
 			<tr>
 				<td>Nimi</td>
 				<td>Kalorid 100g kohta (kcal)</td>

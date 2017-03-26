@@ -36,5 +36,5 @@
 	<div class="panel-footer">
 		<button class="btn btn-primary" type="submit">Lisa toiduaine</button>
 	</div>
-	<?php echo form_close(); ?>
+	</form>
 </div>

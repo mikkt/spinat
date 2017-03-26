@@ -13,36 +13,41 @@ Class FoodController extends CI_Controller
 	{
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('foodName', 'Toiduaine nimi', 'required|max_length(50)');
-		$this->form_validation->set_rules('energy', 'Kalorid 100kcal kohta', 'required');
-		$this->form_validation->set_rules('carbohydrates', 'Süsivesikud', 'required');
-		$this->form_validation->set_rules('fat', 'Rasvad', 'required');
-		$this->form_validation->set_rules('protein', 'Valgud', 'required');
+		$this->form_validation->set_rules('foodName', 'Toiduaine nimi', 'trim|required|min_length[3]|max_length[50]');
+		$this->form_validation->set_rules('energy', 'Kalorid 100kcal kohta', 'trim|required|numeric');
+		$this->form_validation->set_rules('carbohydrates', 'Süsivesikud', 'trim|required|numeric');
+		$this->form_validation->set_rules('fat', 'Rasvad', 'trim|required|numeric');
+		$this->form_validation->set_rules('protein', 'Valgud', 'trim|required|numeric');
 		
+		/*$ingredientData = array(
+				'ingredient_name' => $this->input->post('foodName'),
+				'ingredient_energy' => $this->input->post('energy'),
+				'carbohydrates' => $this->input->post('carbohydrates'),
+				'fat' => $this->input->post('fat'),
+				'protein' => $this->input->post('protein')
+		);*/
+		
+		/*print_r($ingredientData);
 		echo '<br />';
 		var_dump($this->form_validation->run());
-		break;
+		break;*/
+		
 		if ($this->form_validation->run() == FALSE)
 		{
-			/*echo '<br />';
-			echo 'asdasdasdasdasdadasdasdas';
-			break;*/
 			redirect('Pages/lisa_toiduaine');
 		}
 		else
 		{
 			$ingredientData = array(
-				'ingredient_name' => $this->input->post('name'),
-				'ingredient_energy' => $this->input->post('energy'),
+				'ingredient_name' => $this->input->post('foodName'),
 				'carbohydrates' => $this->input->post('carbohydrates'),
 				'fat' => $this->input->post('fat'),
-				'protein' => $this->input->post('protein')
+				'protein' => $this->input->post('protein'),
+				'ingredient_energy' => $this->input->post('energy'),
 			);
-			echo '<br />';
-			print_r($ingredientData);
-			break;
+
 			
-			if ($this->ingredient->insertIngredient($ingredientData))
+			if ($this->Ingredient->insertIngredient($ingredientData))
 			{
 				redirect('Pages/toiduained');
 			}
