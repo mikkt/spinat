@@ -10,12 +10,12 @@
         <div class="col-md-6">
             <h2>Registreeru</h2>
             <?php echo form_open('UserController/createAccount'); ?>
-            <label for="username">Kasutajanimi</label>
-            <input type="text" id="username" class="form-control" placeholder="Kasutajanimi" name="username">
+            <label for="register_username">Kasutajanimi</label>
+            <input type="text" id="register_username" class="form-control" placeholder="Kasutajanimi" name="username">
             <label for="email">Email</label>
             <input type="email" id="email" class="form-control" placeholder="Email" name="email">
-            <label for="password">Parool</label>
-            <input type="password" id="password" class="form-control" placeholder="Parool" name="password">
+            <label for="register_password">Parool</label>
+            <input type="password" id="register_password" class="form-control" placeholder="Parool" name="password">
             <label for="pwdrepeat">Korda parooli</label>
             <input type="password" id="pwdrepeat" class="form-control" placeholder="Korda parooli" name="pwdrepeat">
                 
