@@ -114,6 +114,22 @@ class Pages extends CI_Controller
 			$this->load->view('templates/footer');
 		}
     }
+	
+	public function toiduained()
+	{
+		if($this->session->userdata('logged_in'))
+		{
+			$this->load->model('Ingredient'); //Laeb Ingredient modeli
+			$this->data['ingredients'] = $this->Ingredient->getIngredients(); //Kasutab Ingredients modeli getIngredients funktsiooni et andmebaasist toiduained kätte saada
+			
+			$data['title'] = 'Toiduained';
+			
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/nav_user');
+			$this->load->view('pages/toiduained', $this->data); //Passib toiduainete data edasi viewile
+			$this->load->view('templates/footer');
+		}
+	}
 
     // Prototyybi pdf lk 4
     public function paev($year, $month, $day)

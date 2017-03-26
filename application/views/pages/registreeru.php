@@ -9,7 +9,6 @@
         </div>
         <div class="col-md-6">
             <h2>Registreeru</h2>
-			<?php echo validation_errors(); ?>
             <?php echo form_open('UserController/createAccount'); ?>
             <label for="username">Kasutajanimi</label>
             <input type="text" id="username" class="form-control" placeholder="Kasutajanimi" name="username">
@@ -27,4 +26,9 @@
 
     </div>
 </div>
+<?php if(validation_errors() != false): ?>
+	<div class="alert alert-info">
+		<strong>Info!</strong> <?php echo validation_errors();?>
+	</div>
+<?php endif; ?>
     <hr>
