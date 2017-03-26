@@ -194,8 +194,9 @@ class Pages extends CI_Controller
 
         $marker=array();
         $marker['position']= "Liivi 2, tartu,estonia";
+		$marker['infowindow_content']= "Spinat!";
         $this->googlemaps->add_marker($marker);
-
+							
         $this->googlemaps->initialize($config);
         $data['map']=$this->googlemaps->create_map();
 

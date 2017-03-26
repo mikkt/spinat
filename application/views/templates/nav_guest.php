@@ -15,11 +15,11 @@
             <div class="navbar-form navbar-right">
                 <div class="form-group">
                     <label for="username">Kasutajanimi</label>
-                    <input type="text" placeholder="Kasutajanimi" class="form-control" size="30" id="username" name="username"/>
+                    <input type="text" placeholder="Kasutajanimi" class="form-control" size="30" id="username" name="username" data-toggle="tooltip" data-placement="right" title="Sisesta kasutajanimi"/>
                 </div>
                 <div class="form-group">
                     <label for="password">Parool</label>
-                    <input type="password" placeholder="Parool" class="form-control" id="password" name="password"/>
+                    <input type="password" placeholder="Parool" class="form-control" id="password" name="password" data-toggle="tooltip" data-placement="right" title="Sisesta parool"/>
                 </div>
                 <input type="submit" class="btn btn-success" value="Logi sisse"/>
             </div>
