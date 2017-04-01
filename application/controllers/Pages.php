@@ -130,6 +130,7 @@ class Pages extends CI_Controller
 		{
 			$this->load->model('Ingredient'); //Laeb Ingredient modeli
 			$this->data['ingredients'] = $this->Ingredient->getIngredients(); //Kasutab Ingredients modeli getIngredients funktsiooni et andmebaasist toiduained kätte saada
+			$this->data['ingredientCount'] = $this->Ingredient->getIngredientCount(); //Kasutab Ingredients modeli getIngredientCount funktsiooni et saada andmebaasist toiduainete count
 			
 			$data['title'] = 'Toiduained';
             $data['username'] = $this->get_username();

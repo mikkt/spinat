@@ -15,4 +15,11 @@ Class Ingredient extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+	
+	function getIngredientCount()
+	{
+		$stored_procedure = 'CALL countIngredients()';
+		$query = $this->db->query($stored_procedure);
+		return $query->result();
+	}
 }
