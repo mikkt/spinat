@@ -7,16 +7,14 @@
     </div>
 </div>
 
-
-<!--<div class="container">
-	<div class="col-md-6 text-center">
-		<h2>Pole veel liige?</h2>
+<div class="container">
+	<?php if(validation_errors() != false): ?>
+	<br />
+	<div class="alert alert-info">
+		<strong>Info!</strong> <?php echo validation_errors();?>
 	</div>
-	<div class="col-md-6 text-center">
-		<a href="<?php #echo site_url('Pages/registreeru'); ?>" class="btn btn-success btn-lg">Liitu kohe!</a>
-	</div>
+<?php endif; ?>
 </div>
--->
 
 <div class="container">
     <!-- Example row of columns -->
@@ -43,7 +41,7 @@
 			<h2>Pole veel liige?</h2>
 		</div>
 		<div class="col-md-6 text-center">
-			<a href="<?php #echo site_url('Pages/registreeru'); ?>" class="btn btn-success btn-lg">Liitu kohe!</a>
+			<a href="<?php echo site_url('Pages/registreeru'); ?>" class="btn btn-success btn-lg">Liitu kohe!</a>
 		</div>
 	</div>
     <hr>

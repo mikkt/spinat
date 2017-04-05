@@ -10,7 +10,6 @@
             <a class="navbar-brand" href="<?php echo site_url('pages'); ?>">Spinat</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <?php echo validation_errors(); ?>
             <?php echo form_open('UserController/verifyLogin'); ?>
             <div class="navbar-form navbar-right">
                 <div class="form-group">
@@ -22,7 +21,7 @@
                     <input type="password" placeholder="Parool" class="form-control" id="password" name="password" data-toggle="tooltip" data-placement="right" title="Sisesta parool"/>
                 </div>
                 <input type="submit" class="btn btn-success" value="Logi sisse"/>
-                <?php echo $google_auth; ?>
+                <!--<?php echo $google_auth; ?>-->
             </div>
             </form>
         </div><!--/.navbar-collapse -->

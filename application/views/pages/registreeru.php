@@ -11,9 +11,9 @@
             <h2>Registreeru</h2>
             <?php echo form_open('UserController/createAccount'); ?>
             <label for="register_username">Kasutajanimi</label>
-            <input type="text" id="register_username" class="form-control" placeholder="Kasutajanimi" name="username">
+            <input type="text" id="register_username" class="form-control" placeholder="Kasutajanimi" name="username" value="<?php echo set_value('username'); ?>">
             <label for="email">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="Email" name="email">
+            <input type="email" id="email" class="form-control" placeholder="Email" name="email" value="<?php echo set_value('email'); ?>">
             <label for="register_password">Parool</label>
             <input type="password" id="register_password" class="form-control" placeholder="Parool" name="password">
             <label for="pwdrepeat">Korda parooli</label>
@@ -27,6 +27,7 @@
     </div>
 </div>
 <?php if(validation_errors() != false): ?>
+	<br />
 	<div class="alert alert-info">
 		<strong>Info!</strong> <?php echo validation_errors();?>
 	</div>

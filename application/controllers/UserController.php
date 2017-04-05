@@ -113,9 +113,14 @@ Class UserController extends CI_Controller
 		$this->form_validation->set_rules('email', 'E-mail', 'trim|required|min_length[8]|max_length[50]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[pwdrepeat]');
 		$this->form_validation->set_rules('pwdrepeat', 'Confirm Password', 'trim|required');
-
+		
+		$username = $this->input->post('username');
+		$email = $this->input->post('email');
+		
 		if ($this->form_validation->run() == FALSE)
 		{
+			$data['username'] = $username;
+			$data['email'] = $email;
 			$data['title'] = 'Registreeru';
 			$this->load->view('templates/header',$data);
             $this->load->view('templates/nav_guest');
@@ -125,9 +130,9 @@ Class UserController extends CI_Controller
 		else
 		{
 			$userData = array(
-				'username' => $this->input->post('username'),
+				'username' => $username,
 				'password' => MD5($this->input->post('password')),
-				'email' => $this->input->post('email')
+				'email' => $email
 			);
 			
 			if ($this->user->insertUser($userData))
