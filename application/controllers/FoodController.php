@@ -13,7 +13,7 @@ Class FoodController extends CI_Controller
 	{
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('foodName', 'Toiduaine nimi', 'trim|required|min_length[3]|max_length[50]');
+		$this->form_validation->set_rules('foodName', 'Toiduaine nimi', 'trim|required|min_length[3]|max_length[50]|alpha');
 		$this->form_validation->set_rules('energy', 'Kalorid 100kcal kohta', 'trim|required|numeric');
 		$this->form_validation->set_rules('carbohydrates', 'Süsivesikud', 'trim|required|numeric');
 		$this->form_validation->set_rules('fat', 'Rasvad', 'trim|required|numeric');
