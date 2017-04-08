@@ -29,8 +29,8 @@ $lang['weight'] = 'Kaal';
 $lang['change_weight'] = 'Muuda kaalu';
 
 // footer and navbar
-$lang['logged_as'] = 'Logitud kui:';
-$lang['food_diary'] = 'Toitumispäevik';
+$lang['logged_as'] = 'Kasutaja:';
+$lang['food_diary'] = 'Päevik';
 $lang['ingredients'] = 'Toiduained';
 $lang['settings'] = 'Seaded';
 $lang['logout'] = 'Logi välja';
@@ -39,6 +39,7 @@ $lang['enter_username'] = 'Sisesta kasutajanimi';
 $lang['enter_password'] = 'Sisesta parool';
 $lang['login_google'] = 'Logi Googlega';
 $lang['language'] = 'Keel';
+$lang['calendar'] = 'Kalender';
 
 // Contact
 $lang['information'] = 'Informatsioon';

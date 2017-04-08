@@ -4,7 +4,7 @@ $idiom = $this->session->userdata('language');
 $this->lang->load('content', $idiom);
 
 $data['lang_logged_as'] = $this->lang->line('logged_as');
-$data['lang_food_diary'] = $this->lang->line('food_diary');
+$data['lang_calendar'] = $this->lang->line('calendar');
 $data['lang_ingredients'] = $this->lang->line('ingredients');
 $data['lang_settings'] = $this->lang->line('settings');
 $data['lang_logout'] = $this->lang->line('logout');

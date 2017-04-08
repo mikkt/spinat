@@ -29,16 +29,17 @@ $lang['weight'] = 'Weight';
 $lang['change_weight'] = 'Change weight';
 
 // footer and navbar
-$lang['logged_as'] = 'Logged in as:';
-$lang['food_diary'] = 'Food diary';
+$lang['logged_as'] = 'User:';
+$lang['food_diary'] = 'Diary';
 $lang['ingredients'] = 'Ingredients';
 $lang['settings'] = 'Settings';
 $lang['logout'] = 'Log out';
 $lang['login'] = 'Log in';
 $lang['enter_username'] = 'Enter username';
 $lang['enter_password'] = 'Enter password';
-$lang['login_google'] = 'Log in with Google';
+$lang['login_google'] = 'Google log in';
 $lang['language'] = 'Language';
+$lang['calendar'] = 'Calendar';
 
 // Contact
 $lang['information'] = 'Information';

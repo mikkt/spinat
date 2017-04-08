@@ -1,5 +1,5 @@
 <div class="container">
-<h2 style="padding-top: 80px;"><?php echo $title; ?></h2>
+<h2><?php echo $title; ?></h2>
 <div class="panel-group">
     <div class="panel panel-default">
         <div class="panel-header"><h4><?php echo $lang_account_settings; ?></h4></div>

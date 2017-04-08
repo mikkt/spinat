@@ -1,5 +1,5 @@
-<nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -11,9 +11,17 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <?php echo form_open('UserController/verifyLogin'); ?>
+            <ul  id="navbar" class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> <?php echo $lang_language; ?> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php echo site_url('pages/setLang/estonian'); ?>">EST</a></li>
+                        <li><a href="<?php echo site_url('pages/setLang/english'); ?>">ENG</a></li>
+                    </ul>
+                </li>
+            </ul>
             <div class="navbar-form navbar-right">
-                <a class="small" href="<?php echo site_url('pages/setLang/estonian'); ?>">EST</a>
-                <a class="small" href="<?php echo site_url('pages/setLang/english'); ?>">ENG</a>
                 <div class="form-group">
                     <label for="username" hidden><?php echo $lang_username; ?></label>
                     <input type="text" placeholder="<?php echo $lang_username; ?>" class="form-control" size="15" id="username" name="username" data-toggle="tooltip" data-placement="right" title="<?php echo $lang_enter_username; ?>"/>
