@@ -10,11 +10,18 @@
             <a class="navbar-brand" href="<?php echo site_url('pages/'); ?>">Spinat</a>
         </div>
         <ul id="navbar" class="nav navbar-nav navbar-right">
-            <p class="navbar-text">Logitud kui: <?php echo $username; ?> </p>
-            <li class="active"><a href="<?php echo site_url('pages/kalender'); ?>">Toitumispäevik</a></li>
-            <li><a href="<?php echo site_url('pages/toiduained'); ?>">Toiduained</a></li>
-            <li><a href="<?php echo site_url('pages/seaded'); ?>">Seaded</a></li>
-            <li><a href="<?php echo site_url('UserController/logout'); ?>">Logi välja</a></li>
+            <p class="navbar-text"><?php echo $lang_logged_as . " " . $username; ?> </p>
+            <li><a href="<?php echo site_url('pages/kalender'); ?>"><?php echo $lang_food_diary; ?></a></li><!-- class="active" -->
+            <li><a href="<?php echo site_url('pages/toiduained'); ?>"><?php echo $lang_ingredients; ?></a></li>
+            <li><a href="<?php echo site_url('pages/seaded'); ?>"><?php echo $lang_settings ?></a></li>
+            <li><a href="<?php echo site_url('UserController/logout'); ?>"><?php echo $lang_logout; ?></a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $lang_language; ?> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?php echo site_url('pages/setLang/estonian'); ?>">EST</a></li>
+                    <li><a href="<?php echo site_url('pages/setLang/english'); ?>">ENG</a></li>
+                </ul>
         </ul>
+
     </div>
 </nav>

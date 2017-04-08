@@ -2,23 +2,23 @@
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-6">
-            <h2>Mingit juttu</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <h2><?php echo $lang_text_header; ?></h2>
+            <p><?php echo $lang_text_content; ?></p>
 
         </div>
         <div class="col-md-6">
-            <h2>Registreeru</h2>
+            <h2><?php echo $title; ?></h2>
             <?php echo form_open('UserController/createAccount'); ?>
-            <label for="register_username">Kasutajanimi</label>
-            <input type="text" id="register_username" class="form-control" placeholder="Kasutajanimi" name="username" value="<?php echo set_value('username'); ?>">
+            <label for="register_username"><?php echo $lang_username; ?></label>
+            <input type="text" id="register_username" class="form-control" placeholder="<?php echo $lang_username; ?>" name="username" value="<?php echo set_value('username'); ?>">
             <label for="email">Email</label>
             <input type="email" id="email" class="form-control" placeholder="Email" name="email" value="<?php echo set_value('email'); ?>">
-            <label for="register_password">Parool</label>
-            <input type="password" id="register_password" class="form-control" placeholder="Parool" name="password">
-            <label for="pwdrepeat">Korda parooli</label>
-            <input type="password" id="pwdrepeat" class="form-control" placeholder="Korda parooli" name="pwdrepeat">
+            <label for="register_password"><?php echo $lang_password; ?></label>
+            <input type="password" id="register_password" class="form-control" placeholder="<?php echo $lang_password; ?>" name="password">
+            <label for="pwdrepeat"><?php echo $lang_repeat_password; ?></label>
+            <input type="password" id="pwdrepeat" class="form-control" placeholder="<?php echo $lang_repeat_password; ?>" name="pwdrepeat">
                 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Registreeru</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $title; ?></button>
             </form>
 
         </div>

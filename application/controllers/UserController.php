@@ -48,6 +48,7 @@ Class UserController extends CI_Controller
                 'is_google' => True,
             );
             $this->session->set_userdata('logged_in', $sess_array);
+            //$this->session->set_userdata('language', 'estonian');
 
             redirect('Pages');
         } else {
@@ -93,6 +94,7 @@ Class UserController extends CI_Controller
                     'is_google' => False,
 				);
 				$this->session->set_userdata('logged_in', $sess_array);
+                //$this->session->set_userdata('language', 'estonian');
 			}
 			return TRUE;
 		}
@@ -155,8 +157,10 @@ Class UserController extends CI_Controller
 		if($this->session->userdata('logged_in'))
 		{
 		$this->session->unset_userdata('logged_in');
+		//$this->session->unset_userdata('language');
 		session_destroy();
-		redirect('Pages', 'refresh');
+		// Kui directib lihtsalt välja, siis keel läheb config['lang'] peale. Nüüd redirectib logout->setlang(hetke_keel)->pealeht
+		redirect('Pages/setLang/' . $this->session->userdata('language'), 'refresh');
 		}
         if(isset($_REQUEST['logout'])){
 
