@@ -1,4 +1,4 @@
-<div class="container" style="padding-top: 80px;">
+<div class="container">
 <h2 style="padding-top: 80px;">Kontakt</h2>
 <div class="panel panel-default">
     <div class="panel-header">Andmed</div>

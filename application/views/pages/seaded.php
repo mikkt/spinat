@@ -1,4 +1,4 @@
-<div class="container" style="padding-top: 80px;">
+<div class="container">
 <h2 style="padding-top: 80px;">Seaded</h2>
 <div class="panel-group">
     <div class="panel panel-default">

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -10,7 +10,6 @@
             <a class="navbar-brand" href="<?php echo site_url('pages'); ?>">Spinat</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <?php echo validation_errors(); ?>
             <?php echo form_open('UserController/verifyLogin'); ?>
             <div class="navbar-form navbar-right">
                 <div class="form-group">
@@ -28,3 +27,11 @@
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
+
+<div class="container">
+	<?php if ($this->session->flashdata('errors')): ?>
+	<div class="alert alert-warning">
+    <?php echo $this->session->flashdata('errors'); ?>
+	</div>
+	<?php endif; ?>
+</div>

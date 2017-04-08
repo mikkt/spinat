@@ -1,5 +1,5 @@
 <script src="<?php echo base_url(); ?>media/js/filterTable.js"></script>
-<div class="container" style="padding-top: 80px;">
+<div class="container">
 	<div class="panel panel-default">
 	<div class="panel-heading">Toiduained <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Kasuta otsinguriba, et toiduaineid filtreerida"/></div>
 	<div class="panel-body">

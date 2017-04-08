@@ -1,4 +1,4 @@
-<div class="container" style="padding-top: 80px;">
+<div class="container">
 	<?php if(validation_errors() != false): ?>
 		<div class="alert alert-info">
 		<strong>Info!</strong> <?php echo validation_errors();?>
