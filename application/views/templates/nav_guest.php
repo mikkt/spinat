@@ -21,7 +21,7 @@
                     <input type="password" placeholder="Parool" class="form-control" id="password" name="password" data-toggle="tooltip" data-placement="right" title="Sisesta parool"/>
                 </div>
                 <input type="submit" class="btn btn-success" value="Logi sisse"/>
-                <!--<?php echo $google_auth; ?>-->
+                <?php echo $google_auth; ?>
             </div>
             </form>
         </div><!--/.navbar-collapse -->

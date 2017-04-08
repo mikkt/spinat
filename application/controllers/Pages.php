@@ -131,7 +131,7 @@ class Pages extends CI_Controller
 			$this->load->model('Ingredient'); //Laeb Ingredient modeli
 			$this->data['ingredients'] = $this->Ingredient->getIngredients(); //Kasutab Ingredients modeli getIngredients funktsiooni et andmebaasist toiduained kätte saada
 			$this->data['ingredientCount'] = $this->Ingredient->getIngredientCount(); //Kasutab Ingredients modeli getIngredientCount funktsiooni et saada andmebaasist toiduainete count
-			
+
 			$data['title'] = 'Toiduained';
             $data['username'] = $this->get_username();
 			
@@ -167,12 +167,17 @@ class Pages extends CI_Controller
             $data['month'] = $this->calendar->get_month_name($month);
             $data['day'] = $day;
 
+            // Toiduainete otsing
+            $this->load->model('Ingredient'); //Laeb Ingredient modeli
+            $this->data['ingredients'] = $this->Ingredient->getIngredients(); //Kasutab Ingredients modeli getIngredients funktsiooni et andmebaasist toiduained kätte saada
+            $this->data['ingredientCount'] = $this->Ingredient->getIngredientCount(); //Kasutab Ingredients modeli getIngredientCount funktsiooni et saada andmebaasist toiduainete count
+
 
             $data['username'] = $this->get_username();
 
 			$this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
-			$this->load->view('pages/paev', $data);
+			$this->load->view('pages/paev', $this->data);
 			$this->load->view('templates/footer');
 		}else{
             redirect('Pages');
