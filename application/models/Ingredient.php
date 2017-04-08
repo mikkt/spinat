@@ -5,7 +5,15 @@ Class Ingredient extends CI_Model
 	function insertIngredient($data)
 	{
 		$stored_procedure = 'CALL insertIngredient(?, ?, ?, ?, ?)';
-		return $this->db->query($stored_procedure, array('ingredient_name'=>$data['ingredient_name'], 'carbohydrates'=>$data['carbohydrates'],'protein'=>$data['protein'],'fat'=>$data['fat'],'ingredient_energy'=>$data['ingredient_energy']));
+		return $this->db->query($stored_procedure, 
+								[
+									'ingredient_name'=>$data['ingredient_name'], 
+									'carbohydrates'=>$data['carbohydrates'],
+									'protein'=>$data['protein'],
+									'fat'=>$data['fat'],
+									'ingredient_energy'=>$data['ingredient_energy']
+								]
+								);
 	}
 	
 	function getIngredients()
