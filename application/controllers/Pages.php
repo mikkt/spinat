@@ -242,10 +242,17 @@ class Pages extends CI_Controller
 			$user_id = $this->session->userdata('logged_in')["user_id"];
 			$date = $year . "-" . $month . "-" . $day;
 			$meal_id_arr = $this->Ingredient->getMealId($user_id, $date);
-			$meal_id = $meal_id_arr[0]['meal_id'];
+			if ($meal_id_arr)
+			{
+				$meal_id = $meal_id_arr[0]['meal_id'];
+				$this->data['meal_ingredients'] = $this->Ingredient->getMealIngredients($meal_id);
+			}
+			else
+			{
+				$this->data['meal_ingredients'] = array();
+			}
 			
 			// Kasutab toidukorra id-d et fetchida andmebaasist selle id-ga toidukorda kuuluvad ingredientid
-			$this->data['meal_ingredients'] = $this->Ingredient->getMealIngredients($meal_id);
 			
 			
             $this->load->view('templates/header', $data);
