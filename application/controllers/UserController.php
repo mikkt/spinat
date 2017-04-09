@@ -28,7 +28,7 @@ Class UserController extends CI_Controller
         $client->setApplicationName($APPLICATION_NAME);
         $client->setClientId($CLIENT_ID);
         $client->setClientSecret($CLIENT_SECRET);
-        $client->setRedirectUri('http://localhost/spinat/index.php/UserController/verifyLogin/');
+        $client->setRedirectUri('http://localhost/index.php/UserController/verifyLogin/');
         $client->setScopes('email');
 
         $plus = new Google_Service_Plus($client);

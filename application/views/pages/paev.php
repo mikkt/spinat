@@ -69,7 +69,6 @@
                                 <?php }?>
                             </table>
 
-                            <!--<p>Hetkel on andmebaasis <?php foreach($ingredientCount as $count) {echo $count->ingredientCount; }?> erinevat toiduainet.</p>-->
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="q" name="quantity" placeholder="<?php echo $lang_quantity; ?>">
                             </div>

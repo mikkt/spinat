@@ -229,7 +229,6 @@ class Pages extends CI_Controller
             // Toiduainete otsing
             $this->load->model('Ingredient'); //Laeb Ingredient modeli
             $this->data['ingredients'] = $this->Ingredient->getIngredients(); //Kasutab Ingredients modeli getIngredients funktsiooni et andmebaasist toiduained kätte saada
-            $this->data['ingredientCount'] = $this->Ingredient->getIngredientCount(); //Kasutab Ingredients modeli getIngredientCount funktsiooni et saada andmebaasist toiduainete count
 			
 
             $data['username'] = $this->get_username();
@@ -242,17 +241,19 @@ class Pages extends CI_Controller
 			$user_id = $this->session->userdata('logged_in')["user_id"];
 			$date = $year . "-" . $month . "-" . $day;
 			$meal_id_arr = $this->Ingredient->getMealId($user_id, $date);
+			
 			if ($meal_id_arr)
 			{
 				$meal_id = $meal_id_arr[0]['meal_id'];
+				// Kasutab toidukorra id-d et fetchida andmebaasist selle id-ga toidukorda kuuluvad ingredientid
 				$this->data['meal_ingredients'] = $this->Ingredient->getMealIngredients($meal_id);
 			}
 			else
 			{
+				// Kui andmebaasist tulev vastus on tühi, siis annab edasi tühja array kuvamiseks
 				$this->data['meal_ingredients'] = array();
 			}
 			
-			// Kasutab toidukorra id-d et fetchida andmebaasist selle id-ga toidukorda kuuluvad ingredientid
 			
 			
             $this->load->view('templates/header', $data);

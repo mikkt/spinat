@@ -1,4 +1,4 @@
-<div class="container" style="padding-top: 80px;">
+<div class="container">
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-6">

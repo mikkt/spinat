@@ -53,4 +53,9 @@ Class FoodController extends CI_Controller
 			}
 		}
 	}
+	
+	public function addMealIngredient()
+	{
+		
+	}
 }

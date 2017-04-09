@@ -11,7 +11,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <?php echo form_open('UserController/verifyLogin'); ?>
-            <ul  id="navbar" class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> <?php echo $lang_language; ?> <span class="caret"></span></a>
