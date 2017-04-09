@@ -31,7 +31,7 @@
                     <input type="password" placeholder="<?php echo $lang_password; ?>" class="form-control" size="15" id="password" name="password" data-toggle="tooltip" data-placement="right" title="<?php echo $lang_enter_password; ?>"/>
                 </div>
                 <input type="submit" class="btn btn-success" value="<?php echo $lang_login; ?>"/>
-                <?php echo $google_auth; ?>
+                <!--<?php echo $google_auth; ?>-->
             </div>
             </form>
         </div><!--/.navbar-collapse -->

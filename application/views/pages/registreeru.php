@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-top: 80px;">
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-6">
@@ -17,8 +17,8 @@
             <input type="password" id="register_password" class="form-control" placeholder="<?php echo $lang_password; ?>" name="password">
             <label for="pwdrepeat"><?php echo $lang_repeat_password; ?></label>
             <input type="password" id="pwdrepeat" class="form-control" placeholder="<?php echo $lang_repeat_password; ?>" name="pwdrepeat">
-                
-                <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $title; ?></button>
+            <br />
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $title; ?></button>
             </form>
 
         </div>

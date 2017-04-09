@@ -125,6 +125,11 @@ Class UserController extends CI_Controller
 			$data['username'] = $username;
 			$data['email'] = $email;
 			$data['title'] = 'Registreeru';
+			require_once 'Import_lang.php';
+            $data['title'] = $this->lang->line('title_register');
+            $data['lang_text_header'] = $this->lang->line('text_header');
+            $data['lang_text_content'] = $this->lang->line('text_content');
+            $data['lang_repeat_password'] = $this->lang->line('repeat_password');
 			$this->load->view('templates/header',$data);
             $this->load->view('templates/nav_guest');
             $this->load->view('pages/registreeru', $data);
