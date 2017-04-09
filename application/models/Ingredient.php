@@ -28,6 +28,26 @@ Class Ingredient extends CI_Model
 	{
 		$stored_procedure = 'CALL countIngredients()';
 		$query = $this->db->query($stored_procedure);
+		mysqli_next_result($this->db->conn_id);
 		return $query->result();
+	}
+	
+	function getMealIngredients($meal_id)
+	{
+		$this->db->select('ingredient_name, amount, carbohydrates, protein, fat, ingredient_energy');
+		$this->db->from('meal_ingredients_view');
+		$this->db->where('meal_id', $meal_id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+	
+	function getMealId($user_id, $date)
+	{
+		$this->db->select('meal_id');
+		$this->db->from('meal_view');
+		$this->db->where('user_id', $user_id);
+		$this->db->where('meal_date', $date);
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 }

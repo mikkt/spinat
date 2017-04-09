@@ -22,14 +22,27 @@
         <div class="row">
             <div class="col-md-12"><h4><?php echo $lang_breakfast; ?></h4></div>
             <div class="col-sm-12 col-md-6">
-                <div class="table-responsive">
-                    <table border="1" class="table table-striped">
-                        <tr><th><?php echo $lang_name; ?></th><th><?php echo $lang_quantity; ?></th><th><?php echo $lang_calories; ?></th><th><?php echo $lang_carbs; ?></th><th><?php echo $lang_fats; ?></th><th><?php echo $lang_proteins; ?></th></tr>
-                        <tr><td>Nimetus siin<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></td><td>177</td><td>174</td><td>10</td><td>0</td><td>20</td></tr>
-                        <tr><td>Veidi pikem nimetus on siin<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></td><td>3</td><td>14</td><td>4 304</td><td>3</td><td>1</td></tr>
-                        <tr><td>Midagi veel<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></td><td>34</td><td>14</td><td>43</td><td>57</td><td>33</td></tr>
-                    </table>
-                </div>
+                <div class="panel panel-default">
+				<div class="panel-heading">
+				</div>
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table border="1" class="table table-bordered">
+							<tr><th><?php echo $lang_name; ?></th><th><?php echo $lang_quantity; ?></th><th><?php echo $lang_calories; ?></th><th><?php echo $lang_carbs; ?></th><th><?php echo $lang_fats; ?></th><th><?php echo $lang_proteins; ?></th></tr>
+							<?php foreach($meal_ingredients as $meal_ingredient){?>
+								<tr>
+									<td><?php echo $meal_ingredient->ingredient_name;?></td>
+									<td><?php echo $meal_ingredient->amount;?></td>
+									<td><?php echo $meal_ingredient->ingredient_energy;?></td>
+									<td><?php echo $meal_ingredient->carbohydrates;?></td>
+									<td><?php echo $meal_ingredient->fat;?></td>
+									<td><?php echo $meal_ingredient->protein;?></td>
+								</tr>
+                            <?php }?>
+						</table>
+					</div>
+				</div>
+				</div>
             </div>
             <div class="col-md-6 col-sm-12">
                 <div class="panel panel-default">

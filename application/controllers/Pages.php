@@ -230,10 +230,24 @@ class Pages extends CI_Controller
             $this->load->model('Ingredient'); //Laeb Ingredient modeli
             $this->data['ingredients'] = $this->Ingredient->getIngredients(); //Kasutab Ingredients modeli getIngredients funktsiooni et andmebaasist toiduained kätte saada
             $this->data['ingredientCount'] = $this->Ingredient->getIngredientCount(); //Kasutab Ingredients modeli getIngredientCount funktsiooni et saada andmebaasist toiduainete count
-
+			
 
             $data['username'] = $this->get_username();
-
+			
+			/*
+			Toidukorra osa
+			*/
+			
+			// Fetchib andmebaasist toidukorra id
+			$user_id = $this->session->userdata('logged_in')["user_id"];
+			$date = $year . "-" . $month . "-" . $day;
+			$meal_id_arr = $this->Ingredient->getMealId($user_id, $date);
+			$meal_id = $meal_id_arr[0]['meal_id'];
+			
+			// Kasutab toidukorra id-d et fetchida andmebaasist selle id-ga toidukorda kuuluvad ingredientid
+			$this->data['meal_ingredients'] = $this->Ingredient->getMealIngredients($meal_id);
+			
+			
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
             $this->load->view('pages/paev', $this->data);
