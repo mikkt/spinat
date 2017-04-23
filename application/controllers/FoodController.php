@@ -56,6 +56,22 @@ Class FoodController extends CI_Controller
 	
 	public function addMealIngredient()
 	{
+
+		$user_id = $this->session->userdata('logged_in')["user_id"];
+		$ingredientName = $this->input->post('ingredientName');
+		$quantity = $this->input->post('quantity');
+		$date = $this->input->post('date');
+		$meal_id = $this->Ingredient->getMealId($user_id, $date)[0]['meal_id'];
+		$ingredient_id = $this->Ingredient->getIngredientId($ingredientName)[0]['ingredient_id'];
+		
+		if($meal_id)
+		{
+			$this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
+		} else {
+			$this->Ingredient->createMeal($user_id, 1, $date);
+			$meal_id = $this->Ingredient->getMealId($user_id, $date);
+			$this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
+		}
 		
 	}
 }

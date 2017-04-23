@@ -1,4 +1,5 @@
 <script src="<?php echo base_url(); ?>media/js/filterTable.js"></script>
+<script src="<?php echo base_url(); ?>media/js/clickRow.js"></script>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -27,7 +28,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="table-responsive">
-						<table border="1" class="table table-bordered">
+						<table border="1" class="table table-bordered" id="ingredientTable">
 							<tr><th><?php echo $lang_name; ?></th><th><?php echo $lang_quantity; ?></th><th><?php echo $lang_calories; ?></th><th><?php echo $lang_carbs; ?></th><th><?php echo $lang_fats; ?></th><th><?php echo $lang_proteins; ?></th></tr>
 							<?php foreach($meal_ingredients as $meal_ingredient){?>
 								<tr>
@@ -59,8 +60,8 @@
                                     <th><?php echo $lang_proteins; ?> (g)</td>
                                 </tr>
                                 <?php foreach($ingredients as $ingredient){?>
-                                    <tr>
-                                        <td><?php echo $ingredient->ingredient_name;?></td>
+                                    <tr class="clickable-row">
+                                        <td class="ingredient-name"><?php echo $ingredient->ingredient_name; ?></td>
                                         <td><?php echo $ingredient->ingredient_energy;?></td>
                                         <td><?php echo $ingredient->carbohydrates;?></td>
                                         <td><?php echo $ingredient->fat;?></td>
@@ -73,7 +74,7 @@
                                 <input type="text" class="form-control" id="q" name="quantity" placeholder="<?php echo $lang_quantity; ?>">
                             </div>
                             <div class="col-md-4">
-                                <a href="#" class="btn btn-success text-right"><?php echo $lang_add_to_menu; ?></a>
+                                <a class="btn btn-success text-right" id="addIngredient"><?php echo $lang_add_to_menu; ?></a>
                             </div>
                             <div class="col-md-4">
                                 <a href="<?php echo site_url('Pages/lisa_toiduaine'); ?>" class="btn btn-default text-right"><?php echo $lang_new_ingredient; ?></a>
