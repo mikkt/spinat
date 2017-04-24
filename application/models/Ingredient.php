@@ -54,7 +54,7 @@ Class Ingredient extends CI_Model
 	function getIngredientId($ingredient_name)
 	{
 		$this->db->select('ingredient_id');
-		$this->db->from('ingredient');
+		$this->db->from('Ingredient');
 		$this->db->where('ingredient_name', $ingredient_name);
 		$query = $this->db->get();
 		return $query->result_array();

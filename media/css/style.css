@@ -18,3 +18,7 @@ html { overflow-y: scroll; }
 .paev-bottom {
     margin: 10px 0 0 0;
 }
+
+.clickable-row {
+	cursor:pointer;
+}

@@ -21,9 +21,9 @@ $(document).ready(function() {
 		};
 		
 		console.log(postData);
-		 console.log("http://localhost/index.php/FoodController/addMealIngredient");
+		console.log("http://localhost/index.php/FoodController/addMealIngredient");
 		$.ajax({
-			type: "POST",
+			type: "GET",
 			url: "http://localhost/index.php/FoodController/addMealIngredient",
 			data: postData,
 			success: function() {
