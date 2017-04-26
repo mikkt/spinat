@@ -27,7 +27,7 @@ $(document).ready(function() {
 			url: "http://localhost/index.php/FoodController/addMealIngredient",
 			data: postData,
 			success: function() {
-				
+				$('#ingredientTable tr:last').after('<tr><td>'+name+'</td><td>'+quantity+'</td></tr>');
 			},
 			error: function(xhr, status, error) {
 					console.log(xhr);
