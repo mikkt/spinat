@@ -20,14 +20,18 @@ $(document).ready(function() {
 			'date' : date
 		};
 		
-		console.log(postData);
-		console.log("http://localhost/index.php/FoodController/addMealIngredient");
+		//console.log(postData);
+		//console.log("http://localhost/index.php/FoodController/addMealIngredient");
 		$.ajax({
 			type: "GET",
 			url: "http://localhost/index.php/FoodController/addMealIngredient",
 			data: postData,
-			success: function() {
-				$('#ingredientTable tr:last').after('<tr><td>'+name+'</td><td>'+quantity+'</td></tr>');
+			success: function(ingredientData) {
+				var stringData = JSON.stringify(ingredientData);
+				var parsedData = $.parseJSON(JSON.stringify(ingredientData));
+				//console.log(parsedData);
+				
+			$('#ingredientTable tr:last').after('<tr><td>'+name+'</td><td>'+quantity+'</td><td>'+parsedData[0].ingredient_energy+'</td><td>'+parsedData[0].carbohydrates+'</td><td>'+parsedData[0].fat+'</td><td>'+parsedData[0].protein+'</td></tr>');
 			},
 			error: function(xhr, status, error) {
 					console.log(xhr);

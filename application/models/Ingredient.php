@@ -71,4 +71,13 @@ Class Ingredient extends CI_Model
 		$stored_procedure = 'CALL addIngredientToMeal(?, ?, ?)';
 		return $this->db->query($stored_procedure, array($meal_id, $ingredient_id, $amount));
 	}
+	
+	function getIngredientData($ingredient_name)
+	{
+		$this->db->select('carbohydrates, protein, fat, ingredient_energy');
+		$this->db->from('ingredients_view');
+		$this->db->where('ingredient_name', $ingredient_name);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }
