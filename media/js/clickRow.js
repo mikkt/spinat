@@ -20,6 +20,12 @@ $(document).ready(function() {
 			'date' : date
 		};
 		
+		// TODO backend validation w/ language support
+		if (quantity <= 0) {
+			alert('quantity <= 0');
+			$('#q').val('');
+		} else {
+			
 		//console.log(postData);
 		//console.log("http://localhost/index.php/FoodController/addMealIngredient");
 		$.ajax({
@@ -39,6 +45,7 @@ $(document).ready(function() {
 					console.log(error);
 				}
 		});
+		}
 		return false;
 	});
 });
