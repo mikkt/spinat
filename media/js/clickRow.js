@@ -1,9 +1,12 @@
 $(document).ready(function() {
+	var isActive = false;
 	$('#foodTable').on('click', '.clickable-row', function(event) {
 		if($(this).hasClass('active')){
 			$(this).removeClass('active');
+			isActive = false;
 		} else {
 			$(this).addClass('active').siblings().removeClass('active');
+			isActive = true;
 		}
 	});
 	
@@ -22,9 +25,8 @@ $(document).ready(function() {
 		
 		// TODO backend validation w/ language support
 		if (quantity <= 0) {
-			alert('quantity <= 0');
 			$('#q').val('');
-		} else {
+		} else if (isActive){
 			
 		//console.log(postData);
 		//console.log("http://localhost/index.php/FoodController/addMealIngredient");
