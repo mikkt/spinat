@@ -63,6 +63,7 @@ $lang['search_help'] = 'Kasuta otsingut, et filtreerida toiduaineid';
 $lang['add_to_menu'] = 'Lisa menüüsse';
 $lang['new_ingredient'] = 'Lisa uus toiduaine';
 $lang['today'] = 'Täna';
+$lang['remove_ingredient'] = 'Eemalda toiduaine menüüst';
 
 // Ingredients
 $lang['different_ingredients'] = 'Erinevate toiduainete arv andmebaasis';

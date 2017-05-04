@@ -49,6 +49,9 @@
                             <?php }?>
 						</table>
 					</div>
+					<div>
+						<a class="btn btn-success text-right" id="removeIngredient"><?php echo $lang_remove_ingredient; ?></a>
+					</div>
 				</div>
 				</div>
             </div>

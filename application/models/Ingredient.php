@@ -103,4 +103,9 @@ Class Ingredient extends CI_Model
 			return TRUE;
 		}
 	}
+	
+	function removeIngredient($meal_id, $ingredient_name)
+	{
+		
+	}
 }

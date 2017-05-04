@@ -42,9 +42,14 @@ $(document).ready(function() {
 			success: function(ingredientData) {
 				var stringData = JSON.stringify(ingredientData);
 				var parsedData = $.parseJSON(JSON.stringify(ingredientData));
-				//console.log(parsedData);
+				console.log(parsedData);
 				
-			$('#ingredientTable tr:last').after('<tr><td>'+name+'</td><td>'+quantity+'</td><td>'+parsedData[0].ingredient_energy+'</td><td>'+parsedData[0].carbohydrates+'</td><td>'+parsedData[0].fat+'</td><td>'+parsedData[0].protein+'</td></tr>');
+				if (parsedData.ingredient_energy = -1)
+				{
+					
+				} else {
+					$('#ingredientTable tr:last').after('<tr><td>'+name+'</td><td>'+quantity+'</td><td>'+parsedData[0].ingredient_energy+'</td><td>'+parsedData[0].carbohydrates+'</td><td>'+parsedData[0].fat+'</td><td>'+parsedData[0].protein+'</td></tr>');
+				}
 			},
 			error: function(xhr, status, error) {
 					console.log(xhr);

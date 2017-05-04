@@ -63,6 +63,7 @@ $lang['search_help'] = 'Use search to filter ingredients.';
 $lang['add_to_menu'] = 'Add to menu';
 $lang['new_ingredient'] = 'Add new ingredient';
 $lang['today'] = 'Today';
+$lang['remove_ingredient'] = 'Remove ingredient from meal';
 
 // Ingredients
 $lang['different_ingredients'] = 'Number of different ingredients in database';
