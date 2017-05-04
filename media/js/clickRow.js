@@ -44,13 +44,14 @@ $(document).ready(function() {
 				var parsedData = $.parseJSON(JSON.stringify(ingredientData));
 				//console.log(parsedData);
 				
-				if (parsedData.ingredient_energy = -1)
+				if (parsedData.ingredient_energy == -1)
 				{
+					console.log('asd');
 					var amount = $('#ingredientTable').find('tr[data-id="' + name + '"]').find('.amount').text();
 					var newAmount = parseFloat(quantity) + parseFloat(amount);
 					$('#ingredientTable').find('tr[data-id="' + name + '"]').find('.amount').text(newAmount);
 				} else {
-					$('#ingredientTable tr:last').after('<tr><td>'+name+'</td><td>'+quantity+'</td><td>'+parsedData[0].ingredient_energy+'</td><td>'+parsedData[0].carbohydrates+'</td><td>'+parsedData[0].fat+'</td><td>'+parsedData[0].protein+'</td></tr>');
+					$('#ingredientTable tr:last').after('<tr class="clickable-row" data-id="'+name+'"><td>'+name+'</td><td class="amount">'+quantity+'</td><td>'+parsedData[0].ingredient_energy+'</td><td>'+parsedData[0].carbohydrates+'</td><td>'+parsedData[0].fat+'</td><td>'+parsedData[0].protein+'</td></tr>');
 				}
 			},
 			error: function(xhr, status, error) {
