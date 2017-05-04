@@ -42,11 +42,13 @@ $(document).ready(function() {
 			success: function(ingredientData) {
 				var stringData = JSON.stringify(ingredientData);
 				var parsedData = $.parseJSON(JSON.stringify(ingredientData));
-				console.log(parsedData);
+				//console.log(parsedData);
 				
 				if (parsedData.ingredient_energy = -1)
 				{
-					
+					var amount = $('#ingredientTable').find('tr[data-id="' + name + '"]').find('.amount').text();
+					var newAmount = parseFloat(quantity) + parseFloat(amount);
+					$('#ingredientTable').find('tr[data-id="' + name + '"]').find('.amount').text(newAmount);
 				} else {
 					$('#ingredientTable tr:last').after('<tr><td>'+name+'</td><td>'+quantity+'</td><td>'+parsedData[0].ingredient_energy+'</td><td>'+parsedData[0].carbohydrates+'</td><td>'+parsedData[0].fat+'</td><td>'+parsedData[0].protein+'</td></tr>');
 				}

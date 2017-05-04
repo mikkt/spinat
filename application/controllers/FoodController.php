@@ -79,7 +79,7 @@ Class FoodController extends CI_Controller
 			if ($checkIngredient)
 			{
 				$this->Ingredient->increaseIngredientAmount($meal_id, $ingredient_id, $quantity);
-				$response = array('ingredient_energy' => -1);
+				$response = array('ingredient_energy' => -1); // :DDDDDD workaround
 				$this->output->set_content_type('application/json')->set_output(json_encode($response));
 			} else {
 				$this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
