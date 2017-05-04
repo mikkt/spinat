@@ -29,9 +29,16 @@
 				<div class="panel-body">
 					<div class="table-responsive">
 						<table border="1" class="table table-bordered" id="ingredientTable">
-							<tr><th><?php echo $lang_name; ?></th><th><?php echo $lang_quantity; ?></th><th><?php echo $lang_calories; ?></th><th><?php echo $lang_carbs; ?></th><th><?php echo $lang_fats; ?></th><th><?php echo $lang_proteins; ?></th></tr>
+							<tr>
+								<th><?php echo $lang_name; ?></th>
+								<th><?php echo $lang_quantity; ?></th>
+								<th><?php echo $lang_calories; ?></th>
+								<th><?php echo $lang_carbs; ?></th>
+								<th><?php echo $lang_fats; ?></th>
+								<th><?php echo $lang_proteins; ?></th>
+							</tr>
 							<?php foreach($meal_ingredients as $meal_ingredient){?>
-								<tr>
+								<tr class="clickable-row">
 									<td><?php echo $meal_ingredient->ingredient_name;?></td>
 									<td><?php echo $meal_ingredient->amount;?></td>
 									<td><?php echo $meal_ingredient->ingredient_energy;?></td>
@@ -96,53 +103,3 @@
 
     <!-- Sama lugu mis ülemistega, söögikord ainult teine. Mingi loop? Lang jaoks: $lang_dinner, $lang_supper ja $lang_snacks-->
     <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-    <div class="paev-kast">
-        <div class="row">
-            <div class="col-md-12"><h4>Lõunasöök</h4></div>
-            <div class="col-md-3"><div style="background-color: #dddddd; width: 250px; height: 250px;">Placeholder</div></div>
-            <div class="col-md-6">
-                <div class="table-responsive">
-                    <table border="1" class="table table-striped">
-                        <tr><th>Toiduaine</th><th>Kogus</th><th>Kalorid</th><th>Süsivesikud</th><th>Rasvad</th><th>Valgud</th></tr>
-                        <tr><td>Nimetus siin</td><td>177</td><td>174</td><td>10</td><td>0</td><td>20</td></tr>
-                        <tr><td>Veidi pikem nimetus on siin</td><td>3</td><td>14</td><td>4 304</td><td>3</td><td>1</td></tr>
-                        <tr><td>Midagi veel</td><td>34</td><td>14</td><td>43</td><td>57</td><td>33</td></tr>
-                    </table>
-                </div>
-            </div>
-            <div class="col-md-3"><div style="background-color: #dddddd; width: 250px; height: 250px;">Placeholder</div></div>
-        </div>
-        <div class="row paev-bottom">
-            <div class="col-md-12 text-right">
-                <a type="button" class="btn btn-primary" href="#">
-                    <span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span> Muuda
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="paev-kast">
-        <div class="row">
-            <div class="col-md-12"><h4>Õhtusöök</h4></div>
-            <div class="col-md-3"><div style="background-color: #dddddd; width: 250px; height: 250px;">Placeholder</div></div>
-            <div class="col-md-6">
-                <div class="table-responsive">
-                    <table border="1" class="table table-striped">
-                        <tr><th>Toiduaine</th><th>Kogus</th><th>Kalorid</th><th>Süsivesikud</th><th>Rasvad</th><th>Valgud</th></tr>
-                        <tr><td>Nimetus siin</td><td>177</td><td>174</td><td>10</td><td>0</td><td>20</td></tr>
-                        <tr><td>Veidi pikem nimetus on siin</td><td>3</td><td>14</td><td>4 304</td><td>3</td><td>1</td></tr>
-                        <tr><td>Midagi veel</td><td>34</td><td>14</td><td>43</td><td>57</td><td>33</td></tr>
-                    </table>
-                </div>
-            </div>
-            <div class="col-md-3"><div style="background-color: #dddddd; width: 250px; height: 250px;">Placeholder</div></div>
-        </div>
-        <div class="row paev-bottom">
-            <div class="col-md-12 text-right">
-                <a type="button" class="btn btn-primary" href="#">
-                    <span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span> Muuda
-                </a>
-            </div>
-        </div>
-    </div>
-</div>

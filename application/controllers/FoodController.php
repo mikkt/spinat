@@ -73,12 +73,16 @@ Class FoodController extends CI_Controller
 			$meal_id = $this->Ingredient->getMealId($user_id, $date)[0]['meal_id'];
 			$this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
 			$this->output->set_content_type('application/json')->set_output(json_encode($ingredient_data));
-		} 
-		else 
-		{
+		} else {
 			$meal_id = $meal_id_arr[0]['meal_id'];
-			$this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
-			$this->output->set_content_type('application/json')->set_output(json_encode($ingredient_data));
+			$checkIngredient = $this->Ingredient->checkMealIngredient($meal_id, $ingredientName);
+			if ($checkIngredient)
+			{
+				$this->Ingredient->increaseIngredientAmount($meal_id, $ingredient_id, $quantity);
+			} else {
+				$this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
+				$this->output->set_content_type('application/json')->set_output(json_encode($ingredient_data));
+			}
 		}
 		
 	}

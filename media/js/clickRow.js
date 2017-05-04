@@ -1,15 +1,21 @@
 $(document).ready(function() {
-	var isActive = false;
+	
+	/*
+	Toiduaine lisamine toidukorda.
+	*/
+	var isActiveFood = false; // variable selleks, et kontrollida kas mingi tabeli row on selected
+	// funktsioon teeb tabeli rowid klikitavaks
 	$('#foodTable').on('click', '.clickable-row', function(event) {
 		if($(this).hasClass('active')){
 			$(this).removeClass('active');
-			isActive = false;
+			isActiveFood = false;
 		} else {
 			$(this).addClass('active').siblings().removeClass('active');
-			isActive = true;
+			isActiveFood = true;
 		}
 	});
 	
+	// 'lisa toiduaine' nupule vajutamise funktsioon
 	$(document).on('click', '#addIngredient', function() {
 		var ingredient = $('.clickable-row.active');
 		var name = ingredient.find('.ingredient-name').text();
@@ -23,10 +29,9 @@ $(document).ready(function() {
 			'date' : date
 		};
 		
-		// TODO backend validation w/ language support
 		if (quantity <= 0) {
 			$('#q').val('');
-		} else if (isActive){
+		} else if (isActiveFood){
 			
 		//console.log(postData);
 		//console.log("http://localhost/index.php/FoodController/addMealIngredient");
@@ -49,5 +54,19 @@ $(document).ready(function() {
 		});
 		}
 		return false;
+	});
+	
+	/*
+	Toiduaine toidukorrast eemaldamine.
+	*/
+	var isActiveMeal = false;
+	$('#ingredientTable').on('click', '.clickable-row', function(event) {
+		if($(this).hasClass('active')){
+			$(this).removeClass('active');
+			isActiveMeal = false;
+		} else {
+			$(this).addClass('active').siblings().removeClass('active');
+			isActiveMeal = true;
+		}
 	});
 });

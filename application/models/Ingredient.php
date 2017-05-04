@@ -80,4 +80,27 @@ Class Ingredient extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	
+	function increaseIngredientAmount($meal_id, $ingredient_id, $amount)
+	{
+		$stored_procedure = 'CALL increaseAmount(?, ?, ?)';
+		return $this->db->query($stored_procedure, array($meal_id, $ingredient_id, $amount));
+	}
+	
+	function checkMealIngredient($meal_id, $ingredient_name)
+	{
+		$this->db->select('amount');
+		$this->db->from('meal_ingredients_view');
+		$this->db->where('meal_id', $meal_id);
+		$this->db->where('ingredient_name', $ingredient_name);
+		$query = $this->db->get();
+		$query_arr = $query->result_array();
+		
+		if (empty($query_arr))
+		{
+			return FALSE;
+		} else {
+			return TRUE;
+		}
+	}
 }
