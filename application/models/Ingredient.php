@@ -104,8 +104,9 @@ Class Ingredient extends CI_Model
 		}
 	}
 	
-	function removeIngredient($meal_id, $ingredient_name)
+	function removeIngredient($meal_id, $ingredient_id)
 	{
-		
+		$stored_procedure = 'CALL removeIngredient(?, ?)';
+		return $this->db->query($stored_procedure, array($meal_id, $ingredient_id));
 	}
 }

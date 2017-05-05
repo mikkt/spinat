@@ -88,4 +88,22 @@ Class FoodController extends CI_Controller
 		}
 		
 	}
+	
+	public function removeMealIngredient()
+	{
+		$user_id = $this->session->userdata('logged_in')["user_id"];
+		$ingredientName = $this->input->get('ingredientName');
+		$date = $this->input->get('date');
+		$meal_id_arr = $this->Ingredient->getMealId($user_id, $date);
+		$meal_id = $meal_id_arr[0]['meal_id'];
+		$ingredient_id = $this->Ingredient->getIngredientId($ingredientName)[0]['ingredient_id'];
+		
+		if (!empty($meal_id_arr))
+		{
+			$this->Ingredient->removeIngredient($meal_id, $ingredient_id);
+			$this->output->set_content_type('application/json')->set_output(json_encode(array('test' => 1)));
+		} else {
+			$this->output->set_content_type('application/json')->set_output(json_encode(array('test' => 0)));
+		}
+	}
 }

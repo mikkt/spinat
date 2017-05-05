@@ -39,7 +39,7 @@
 							</tr>
 							<?php foreach($meal_ingredients as $meal_ingredient){?>
 								<tr class="clickable-row" data-id="<?php echo $meal_ingredient->ingredient_name;?>">
-									<td><?php echo $meal_ingredient->ingredient_name;?></td>
+									<td class="ingredient-name"><?php echo $meal_ingredient->ingredient_name;?></td>
 									<td class="amount"><?php echo $meal_ingredient->amount;?></td>
 									<td><?php echo $meal_ingredient->ingredient_energy;?></td>
 									<td><?php echo $meal_ingredient->carbohydrates;?></td>
@@ -71,7 +71,7 @@
                                 </tr>
                                 <?php foreach($ingredients as $ingredient){?>
                                     <tr class="clickable-row" data-id="<?php echo $ingredient->ingredient_name;?>">
-                                        <td class="ingredient-name"><?php echo $ingredient->ingredient_name; ?></td>
+                                        <td class="food-name"><?php echo $ingredient->ingredient_name; ?></td>
                                         <td><?php echo $ingredient->ingredient_energy;?></td>
                                         <td><?php echo $ingredient->carbohydrates;?></td>
                                         <td><?php echo $ingredient->fat;?></td>
