@@ -47,6 +47,14 @@
 									<td><?php echo $meal_ingredient->protein;?></td>
 								</tr>
                             <?php }?>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
 						</table>
 					</div>
 					<div>

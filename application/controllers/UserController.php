@@ -212,6 +212,8 @@ Class UserController extends CI_Controller
 				$this->user->changePassword($user_id, $new_password);
 				redirect('Pages/seaded');
 			}
+		} else {
+			redirect('Pages/seaded');
 		}
 	}
 	
