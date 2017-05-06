@@ -40,6 +40,8 @@
                 <div class="col-sm-3">
                     <p class="form-control-static"><?php echo $lang_age; ?>:</p>
                     <p class="form-control-static"><?php echo $lang_change_age; ?>:</p>
+					<br />
+					<br />
                     <p class="form-control-static"><?php echo $lang_goal; ?>:</p>
                     <p class="form-control-static"><?php echo $lang_change_goal; ?>:</p>
                 </div>
@@ -59,8 +61,11 @@
                     <p class="form-control-static"><?php echo $lang_change_weight; ?>:</p>
                 </div>
                 <div class="col-sm-3">
-                    <label class="form-control-static" >bla</label>
-                    <input type="email" id="new_height" class="form-control">
+					<?php echo form_open('UserController/changeHeight'); ?>
+                    <label class="form-control-static" ><?php echo $user_height; ?></label>
+                    <input type="text" id="new_height" class="form-control" name="new_height">
+					<button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button>
+					</form>
                     <label class="form-control-static" >bla</label>
                     <input type="email" id="new_weight" class="form-control">
                     <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $lang_save; ?></button>
