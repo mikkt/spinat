@@ -229,11 +229,21 @@ Class UserController extends CI_Controller
 			$this->user->changeAge($user_id, $age);
 			redirect('Pages/seaded');
 		}
-		else {
-			echo '<pre>';
-			print_r($this->form_validation->run());
-			echo '</pre>';
-			exit;
+	}
+	
+	public function changeHeight()
+	{
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('new_height', 'Height', 'trim|required|numeric');
+		$height = $this->input->post('new_height');
+		
+		$user_id = $this->session->userdata('logged_in')["user_id"];
+		
+		if ($this->form_validation->run())
+		{
+			$this->user->changeHeight($user_id, $height);
+			redirect('Pages/seaded');
 		}
 	}
 }
