@@ -64,4 +64,20 @@ Class User extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	
+	function changeAge($user_id, $age)
+	{
+		$stored_procedure = 'CALL changeAge(?, ?)';
+		return $this->db->query($stored_procedure, array($user_id, $age));
+	}
+	
+	function getAge($user_id)
+	{
+		$this->db->select('age');
+		$this->db->from('user_data_view');
+		$this->db->where('user_id', $user_id);
+		
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }

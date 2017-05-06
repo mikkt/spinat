@@ -44,8 +44,11 @@
                     <p class="form-control-static"><?php echo $lang_change_goal; ?>:</p>
                 </div>
                 <div class="col-sm-3">
-                    <label class="form-control-static" >bla</label>
-                    <input type="email" id="new_age" class="form-control" >
+					<?php echo form_open('UserController/changeAge'); ?>
+                    <label class="form-control-static" ><?php echo $user_age; ?></label>
+                    <input type="text" id="new_age" class="form-control" name="new_age">
+					<button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button>
+					</form>
                     <label class="form-control-static" >bla</label>
                     <input type="email" id="new_goal" class="form-control" >
                 </div>

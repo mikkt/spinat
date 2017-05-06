@@ -214,5 +214,27 @@ Class UserController extends CI_Controller
 			}
 		}
 	}
+	
+	public function changeAge()
+	{
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('new_age', 'Age', 'trim|required|numeric');
+		$age = $this->input->post('new_age');
+		
+		$user_id = $this->session->userdata('logged_in')["user_id"];
+		
+		if ($this->form_validation->run())
+		{
+			$this->user->changeAge($user_id, $age);
+			redirect('Pages/seaded');
+		}
+		else {
+			echo '<pre>';
+			print_r($this->form_validation->run());
+			echo '</pre>';
+			exit;
+		}
+	}
 }
 		
