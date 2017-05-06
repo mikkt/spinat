@@ -191,5 +191,28 @@ Class UserController extends CI_Controller
 			redirect('Pages/seaded');
 		}
 	}
+	
+	public function changePassword()
+	{
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('current_password', 'Current password', 'trim|required');
+		$this->form_validation->set_rules('new_password', 'New password', 'trim|required|matches[new_password_repeat]');
+		$this->form_validation->set_rules('new_password_repeat', 'Confirm new password', 'trim|required');
+		
+		$current_password = MD5($this->input->post('current_password'));
+		$user_id = $this->session->userdata('logged_in')["user_id"];
+		
+		if ($this->form_validation->run())
+		{
+			$pwarray = $this->user->checkPassword($user_id, $current_password);
+			if (!empty($pwarray))
+			{
+				$new_password = MD5($this->input->post('new_password'));
+				$this->user->changePassword($user_id, $new_password);
+				redirect('Pages/seaded');
+			}
+		}
+	}
 }
 		

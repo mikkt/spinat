@@ -47,4 +47,21 @@ Class User extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	
+	function changePassword($user_id, $password)
+	{
+		$stored_procedure = 'CALL changePassword(?, ?)';
+		return $this->db->query($stored_procedure, array($user_id, $password));
+	}
+	
+	function checkPassword($user_id, $password)
+	{
+		$this->db->select('username');
+		$this->db->from('user_login_view');
+		$this->db->where('user_id', $user_id);
+		$this->db->where('password', $password);
+		
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }

@@ -22,10 +22,12 @@
                     <p class="form-control-static"><?php echo $lang_repeat_password; ?>:</p>
                 </div>
                 <div class="col-sm-3">
-                    <input type="password" id="existingpassword" class="form-control">
-                    <input type="password" id="newpassword" class="form-control">
-                    <input type="password" id="newpwdrepeat" class="form-control">
+					<?php echo form_open('UserController/changePassword'); ?>
+                    <input type="password" id="current_password" class="form-control" name="current_password">
+                    <input type="password" id="new_password" class="form-control" name="new_password">
+                    <input type="password" id="newpwdrepeat" class="form-control" name="new_password_repeat">
                     <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $lang_save; ?></button>
+					</form>
                 </div>
             </div>
         </div>
