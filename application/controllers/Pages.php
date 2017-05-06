@@ -305,6 +305,9 @@ class Pages extends CI_Controller
 			$user_height = $this->user->getHeight($user_id)[0]["height"];
 			$data['user_height'] = $user_height;
 			
+			$user_weight = $this->user->getWeight($user_id)[0]["weight"];
+			$data['user_weight'] = $user_weight;
+			
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
             $this->load->view('pages/seaded', $data);

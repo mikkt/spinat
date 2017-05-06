@@ -228,6 +228,8 @@ Class UserController extends CI_Controller
 		{
 			$this->user->changeAge($user_id, $age);
 			redirect('Pages/seaded');
+		} else {
+			redirect('Pages/seaded');
 		}
 	}
 	
@@ -243,6 +245,26 @@ Class UserController extends CI_Controller
 		if ($this->form_validation->run())
 		{
 			$this->user->changeHeight($user_id, $height);
+			redirect('Pages/seaded');
+		} else {
+			redirect('Pages/seaded');
+		}
+	}
+	
+	public function changeWeight()
+	{
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('new_weight', 'Weight', 'trim|required|numeric');
+		$weight = $this->input->post('new_weight');
+		
+		$user_id = $this->session->userdata('logged_in')["user_id"];
+		
+		if ($this->form_validation->run())
+		{
+			$this->user->changeWeight($user_id, $weight);
+			redirect('Pages/seaded');
+		} else {
 			redirect('Pages/seaded');
 		}
 	}

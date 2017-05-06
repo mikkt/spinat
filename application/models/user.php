@@ -96,4 +96,20 @@ Class User extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	
+	function changeWeight($user_id, $weight)
+	{
+		$stored_procedure = 'CALL changeWeight(?, ?)';
+		return $this->db->query($stored_procedure, array($user_id, $weight));
+	}
+	
+	function getWeight($user_id)
+	{
+		$this->db->select('weight');
+		$this->db->from('user_data_view');
+		$this->db->where('user_id', $user_id);
+		
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }
