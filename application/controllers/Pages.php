@@ -292,8 +292,13 @@ class Pages extends CI_Controller
             $data['lang_weight'] = $this->lang->line('weight');
             $data['lang_change_weight'] = $this->lang->line('change_weight');
 
-            $data['username'] = $this->get_username();
-
+            $this->load->model('user');
+			$data['username'] = $this->get_username();
+			$user_id = $this->session->userdata('logged_in')["user_id"];
+		
+			$user_email = $this->user->getEmail($user_id)[0]['email'];
+			$data['user_email'] = $user_email;
+			
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
             $this->load->view('pages/seaded', $data);

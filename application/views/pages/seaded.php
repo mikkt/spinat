@@ -10,8 +10,11 @@
                     <p class="form-control-static"><?php echo $lang_new_email; ?>:</p>
                 </div>
                 <div class="col-sm-3">
-                    <label class="form-control-static" >bla</label>
-                    <input type="email" id="new_email" class="form-control">
+                    <label class="form-control-static" ><?php echo $user_email; ?></label>
+                    <?php echo form_open('UserController/changeEmail'); ?>
+					<input type="email" id="new_email" class="form-control" name="new_email">
+					<button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $lang_save; ?></button>
+					</form>
                 </div>
                 <div class="col-sm-3">
                     <p class="form-control-static"><?php echo $lang_current_password; ?>:</p>

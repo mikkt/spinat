@@ -32,4 +32,19 @@ Class User extends CI_Model
 		$stored_procedure = 'CALL insertUser(?,?,?)';
 		return $this->db->query($stored_procedure, array('i_username'=>$data['username'], 'i_password'=>$data['password'], 'i_email'=>$data['email']));
 	}
+	
+	function changeEmail($user_id, $email)
+	{
+		$stored_procedure = 'CALL changeEmail(?, ?)';
+		return $this->db->query($stored_procedure, array($user_id, $email));
+	}
+	
+	function getEmail($user_id)
+	{
+		$this->db->select('email');
+		$this->db->from('email_view');
+		$this->db->where('user_id', $user_id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }

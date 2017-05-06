@@ -173,5 +173,23 @@ Class UserController extends CI_Controller
             redirect('Pages', 'refresh');
         }
 	}
+	
+	public function changeEmail()
+	{
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('new_email', 'E-mail', 'trim|required|min_length[8]|max_length[50]');
+		$email = $this->input->post('new_email');
+		$user_id = $this->session->userdata('logged_in')["user_id"];
+		
+		if ($this->form_validation->run())
+		{
+			$this->user->changeEmail($user_id, $email);
+			redirect('Pages/seaded');
+			
+		} else {
+			redirect('Pages/seaded');
+		}
+	}
 }
 		
