@@ -13,8 +13,8 @@ $this->load->helper('url');
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>media/js/jquery.min.js"><\/script>')</script>
 	
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>media/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>media/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>media/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>media/css/style.min.css">
     <script type='text/javascript' src="<?php echo base_url(); ?>media/js/bootstrap.min.js"></script>
 
 </head>
