@@ -51,8 +51,11 @@
                     <input type="text" id="new_age" class="form-control" name="new_age">
 					<button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button>
 					</form>
-                    <label class="form-control-static" >bla</label>
-                    <input type="email" id="new_goal" class="form-control" >
+					<?php echo form_open('UserController/changeWeightGoal'); ?>
+                    <label class="form-control-static" ><?php echo $user_goal; ?></label>
+                    <input type="text" id="new_goal" class="form-control" name="new_goal">
+					<button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button>
+					</form>
                 </div>
                 <div class="col-sm-3">
                     <p class="form-control-static"><?php echo $lang_height; ?>:</p>
@@ -71,7 +74,7 @@
 					<?php echo form_open('UserController/changeWeight'); ?>
                     <label class="form-control-static" ><?php echo $user_weight; ?></label>
                     <input type="text" id="new_weight" class="form-control" name="new_weight">
-                    <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $lang_save; ?></button>
+                    <button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button>
 					</form>
                 </div>
             </div>
