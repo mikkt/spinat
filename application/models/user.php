@@ -128,4 +128,14 @@ Class User extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	
+	function getUserData($user_id)
+	{
+		$this->db->select('age, height, weight, weight_goal');
+		$this->db->from('user_data_view');
+		$this->db->where('user_id', $user_id);
+		
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }
