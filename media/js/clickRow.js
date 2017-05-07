@@ -22,6 +22,10 @@ $(document).ready(function() {
 		var quantity = $('#q').val();
 		var pathArray = window.location.pathname.split('/');
 		var date = pathArray[4] + "-" + pathArray[5] + "-" + pathArray[6];
+		if (pathArray.length < 4) {
+			var today = new Date();
+			var date = today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
+		}
 		
 		var postData = {
 			'ingredientName' : name,
@@ -46,7 +50,6 @@ $(document).ready(function() {
 				
 				if (parsedData.ingredient_energy == -1)
 				{
-					console.log('asd');
 					var amount = $('#ingredientTable').find('tr[data-id="' + name + '"]').find('.amount').text();
 					var newAmount = parseFloat(quantity) + parseFloat(amount);
 					$('#ingredientTable').find('tr[data-id="' + name + '"]').find('.amount').text(newAmount);
@@ -84,6 +87,10 @@ $(document).ready(function() {
 		var name = ingredient.find('.ingredient-name').text();
 		var pathArray = window.location.pathname.split('/');
 		var date = pathArray[4] + "-" + pathArray[5] + "-" + pathArray[6];
+		if (pathArray.length < 4) {
+			var today = new Date();
+			var date = today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
+		}		
 		
 		console.log(name);
 		var postData = {
