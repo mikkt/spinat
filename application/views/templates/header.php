@@ -10,8 +10,8 @@ $this->load->helper('url');
     <title><?php echo $title; ?></title>
 
     <!-- jQuery CDN test, kui CDN pole saadaval, kasutab lokaalset faili -->
-    <script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script async >window.jQuery || document.write('<script async src="<?php echo base_url(); ?>media/js/jquery.min.js"><\/script>')</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script async src="<?php echo base_url(); ?>media/js/jquery.min.js"><\/script>')</script>
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>media/css/bootstrap.min.css">
     <link href="<?php echo base_url(); ?>media/css/style.min.css" rel="stylesheet" type="text/css" >
