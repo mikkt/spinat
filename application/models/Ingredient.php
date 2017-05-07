@@ -108,5 +108,15 @@ Class Ingredient extends CI_Model
 	{
 		$stored_procedure = 'CALL removeIngredient(?, ?)';
 		return $this->db->query($stored_procedure, array($meal_id, $ingredient_id));
+	}  
+	
+	function getMealSum($meal_id)
+	{
+		$this->db->select('sum_amount, sum_ingredient_energy');
+		$this->db->from('meal_sum_view');
+		$this->db->where('meal_id', $meal_id);
+		
+		$query = $this->db->get();
+		return $query->result();
 	}
 }

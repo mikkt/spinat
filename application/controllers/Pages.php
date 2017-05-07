@@ -263,6 +263,14 @@ class Pages extends CI_Controller
 			$calories = $this->User->getDailyCalories($user_id);
 			$this->data['daily_calories'] = $calories;
 			
+			if ($meal_id_arr)
+			{
+				$meal_sum_arr = $this->Ingredient->getMealSum($meal_id_arr[0]['meal_id']);
+				$this->data['meal_ingredients_sum'] = $meal_sum_arr;
+			} else {
+				$this->data['meal_ingredients_sum'] = array();
+			}
+			
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
             $this->load->view('pages/paev', $this->data);

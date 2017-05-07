@@ -21,7 +21,7 @@
 
     <div class="paev-kast">
         <div class="row">
-            <div class="col-md-12"><h4><?php echo $lang_breakfast; ?></h4></div>
+            <div class="col-md-12"><h4><?php //echo $lang_breakfast; ?></h4></div>
             <div class="col-sm-12 col-md-6">
                 <div class="panel panel-default">
 				<div class="panel-heading">
@@ -47,6 +47,26 @@
 									<td><?php echo $meal_ingredient->protein;?></td>
 								</tr>
                             <?php }?>
+						</table>
+						<table class="table table-bordered" id="ingredientSumTable">
+							<tr>
+								<th></th>
+								<th><?php echo $lang_quantity; ?></th>
+								<th>Kaloreid</th>
+								<th>Süsivesikuid</th>
+								<th>Rasvu</th>
+								<th>Valke</th>
+							</tr>
+							<?php foreach($meal_ingredients_sum as $meal_ingredient_sum) {?>
+							<tr>
+								<td>Kokku</td>
+								<td><?php echo $meal_ingredient_sum->sum_amount;?></td>
+								<td><?php echo $meal_ingredient_sum->sum_ingredient_energy;?></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<?php }?>
 						</table>
 					</div>
 					<div>

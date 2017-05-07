@@ -40,7 +40,7 @@
                 <div class="col-sm-3">
                     <p class="form-control-static"><?php echo $lang_age; ?>:</p>
                     <p class="form-control-static"><?php echo $lang_change_age; ?>:</p>
-					<br />
+					<br /> <!-- temporary layout fix-->
 					<br />
                     <p class="form-control-static"><?php echo $lang_goal; ?>:</p>
                     <p class="form-control-static"><?php echo $lang_change_goal; ?>:</p>
