@@ -62,9 +62,9 @@
 								<td>Kokku</td>
 								<td><?php echo $meal_ingredient_sum->sum_amount;?></td>
 								<td><?php echo $meal_ingredient_sum->sum_ingredient_energy;?></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td><?php echo $meal_ingredient_sum->sum_carbohydrates;?></td>
+								<td><?php echo $meal_ingredient_sum->sum_fat;?></td>
+								<td><?php echo $meal_ingredient_sum->sum_protein;?></td>
 							</tr>
 							<?php }?>
 						</table>

@@ -112,7 +112,7 @@ Class Ingredient extends CI_Model
 	
 	function getMealSum($meal_id)
 	{
-		$this->db->select('sum_amount, sum_ingredient_energy');
+		$this->db->select('sum_amount, sum_ingredient_energy, sum_carbohydrates, sum_protein, sum_fat');
 		$this->db->from('meal_sum_view');
 		$this->db->where('meal_id', $meal_id);
 		
