@@ -270,5 +270,23 @@ Class UserController extends CI_Controller
 			redirect('Pages/seaded');
 		}
 	}
+	
+	public function changeWeightGoal()
+	{
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('new_goal', 'Weight goal', 'trim|required|numeric');
+		$goal = $this->input->post('new_goal');
+		
+		$user_id = $this->session->userdata('logged_in')["user_id"];
+		
+		if ($this->form_validation->run())
+		{
+			$this->user->changeWeightGoal($user_id, $goal);
+			redirect('Pages/seaded');
+		} else {
+			redirect('Pages/seaded');
+		}
+	}
 }
 		

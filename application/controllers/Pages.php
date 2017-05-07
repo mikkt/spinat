@@ -308,6 +308,9 @@ class Pages extends CI_Controller
 			$user_weight = $this->user->getWeight($user_id)[0]["weight"];
 			$data['user_weight'] = $user_weight;
 			
+			$user_goal = $this->user->getWeightGoal($user_id)[0]["weight_goal"];
+			$data['user_goal'] = $user_goal;
+			
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
             $this->load->view('pages/seaded', $data);

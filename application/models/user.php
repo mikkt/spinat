@@ -112,4 +112,20 @@ Class User extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	
+	function changeWeightGoal($user_id, $goal)
+	{
+		$stored_procedure = 'CALL changeWeightGoal(?, ?)';
+		return $this->db->query($stored_procedure, array($user_id, $goal));
+	}
+	
+	function getWeightGoal($user_id)
+	{
+		$this->db->select('weight_goal');
+		$this->db->from('user_data_view');
+		$this->db->where('user_id', $user_id);
+		
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }
