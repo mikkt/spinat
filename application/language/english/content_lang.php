@@ -21,11 +21,11 @@ $lang['new_password'] = 'New password';
 $lang['repeat_password'] = 'Repeat password';
 $lang['age'] = 'Age';
 $lang['change_age'] = 'Change age';
-$lang['goal'] = 'Goal';
-$lang['change_goal'] = 'Change goal';
-$lang['height'] = 'Height';
+$lang['goal'] = 'Weight goal (kg)';
+$lang['change_goal'] = 'Change weight goal';
+$lang['height'] = 'Height (cm)';
 $lang['change_height'] = 'Change height';
-$lang['weight'] = 'Weight';
+$lang['weight'] = 'Weight (kg)';
 $lang['change_weight'] = 'Change weight';
 
 // footer and navbar

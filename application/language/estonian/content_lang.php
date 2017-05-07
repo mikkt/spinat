@@ -21,11 +21,11 @@ $lang['new_password'] = 'Uus parool';
 $lang['repeat_password'] = 'Korda parooli';
 $lang['age'] = 'Vanus';
 $lang['change_age'] = 'Muuda vanust';
-$lang['goal'] = 'Eesmärk';
-$lang['change_goal'] = 'Muuda eesmärki';
-$lang['height'] = 'Pikkus';
+$lang['goal'] = 'Kaalueesmärk (kg)';
+$lang['change_goal'] = 'Muuda kaalueesmärki';
+$lang['height'] = 'Pikkus (cm)';
 $lang['change_height'] = 'Muuda pikkust';
-$lang['weight'] = 'Kaal';
+$lang['weight'] = 'Kaal (kg)';
 $lang['change_weight'] = 'Muuda kaalu';
 
 // footer and navbar
