@@ -47,19 +47,12 @@
 									<td><?php echo $meal_ingredient->protein;?></td>
 								</tr>
                             <?php }?>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
 						</table>
 					</div>
 					<div>
 						<a class="btn btn-success text-right" id="removeIngredient"><?php echo $lang_remove_ingredient; ?></a>
 					</div>
+					<div>Sinu päevane kaloraaž on: <?php echo $daily_calories; ?> kcal</div>
 				</div>
 				</div>
             </div>

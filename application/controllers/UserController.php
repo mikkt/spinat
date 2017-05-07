@@ -289,11 +289,5 @@ Class UserController extends CI_Controller
 		}
 	}
 	
-	public function calculateCalorieIntake()
-	{
-		$user_id = $this->session->userdata('logged_in')["user_id"];
-		
-		$user_data_arr = $this->user->getUserData($user_id);
-	}
 }
 		

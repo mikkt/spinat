@@ -255,7 +255,13 @@ class Pages extends CI_Controller
 				$this->data['meal_ingredients'] = array();
 			}
 			
+			/*
+			Kaloraaž
+			*/
 			
+			$this->load->model('User');
+			$calories = $this->User->getDailyCalories($user_id);
+			$this->data['daily_calories'] = $calories;
 			
             $this->load->view('templates/header', $data);
             $this->load->view('templates/nav_user');
