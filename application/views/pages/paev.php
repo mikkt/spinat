@@ -52,14 +52,14 @@
 							<tr>
 								<th></th>
 								<th><?php echo $lang_quantity; ?></th>
-								<th>Kaloreid</th>
-								<th>Süsivesikuid</th>
-								<th>Rasvu</th>
-								<th>Valke</th>
+								<th><?php echo $lang_calories_short; ?></th>
+								<th><?php echo $lang_carbs; ?></th>
+								<th><?php echo $lang_fats; ?></th>
+								<th><?php echo $lang_proteins; ?></th>
 							</tr>
 							<?php foreach($meal_ingredients_sum as $meal_ingredient_sum) {?>
 							<tr>
-								<td>Kokku</td>
+								<td><?php echo $lang_total; ?></td>
 								<td><?php echo $meal_ingredient_sum->sum_amount;?></td>
 								<td><?php echo $meal_ingredient_sum->sum_ingredient_energy;?></td>
 								<td><?php echo $meal_ingredient_sum->sum_carbohydrates;?></td>
@@ -72,7 +72,7 @@
 					<div>
 						<a class="btn btn-success text-right" id="removeIngredient"><?php echo $lang_remove_ingredient; ?></a>
 					</div>
-					<div>Sinu päevane kaloraaž on: <?php echo $daily_calories; ?> kcal</div>
+					<div><?php echo $lang_daily_kcal. " " . $daily_calories; ?> kcal</div>
 				</div>
 				</div>
             </div>

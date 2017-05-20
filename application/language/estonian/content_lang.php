@@ -54,6 +54,7 @@ $lang['snacks'] = 'Suupisted/Snäkid';
 $lang['name'] = 'Nimi';
 $lang['quantity'] = 'Kogus (g)';
 $lang['calories'] = 'Kaloreid 100g kohta';
+$lang['calories_short'] = 'Kaloreid';
 $lang['carbs'] = 'Süsivesikuid';
 $lang['fats'] = 'Rasvu';
 $lang['proteins'] = 'Valke';
@@ -64,6 +65,8 @@ $lang['add_to_menu'] = 'Lisa menüüsse';
 $lang['new_ingredient'] = 'Lisa uus toiduaine';
 $lang['today'] = 'Täna';
 $lang['remove_ingredient'] = 'Eemalda toiduaine menüüst';
+$lang['daily_kcal'] = 'Sinu päevane kaloraaž on: ';
+$lang['total'] = 'Kokku';
 
 // Ingredients
 $lang['different_ingredients'] = 'Erinevate toiduainete arv andmebaasis';
