@@ -214,7 +214,7 @@ Class UserController extends CI_Controller
 			    $newPasswordLen = strlen($this->input->post('new_password'));
 				$new_password = MD5($this->input->post('new_password'));
 				$confirm_password = MD5($this->input->post('new_password_repeat'));
-				if (($new_password == $confirm_password) && $newPasswordLen >= 8) {
+				if ($newPasswordLen >= 8) {
                     $this->user->changePassword($user_id, $new_password);
                     redirect('Pages/seaded');
                 } else {
