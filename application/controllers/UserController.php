@@ -211,9 +211,15 @@ Class UserController extends CI_Controller
 			$pwarray = $this->user->checkPassword($user_id, $current_password);
 			if (!empty($pwarray))
 			{
+			    $newPasswordLen = strlen($this->input->post('new_password'));
 				$new_password = MD5($this->input->post('new_password'));
-				$this->user->changePassword($user_id, $new_password);
-				redirect('Pages/seaded');
+				$confirm_password = MD5($this->input->post('new_password_repeat'));
+				if (($new_password == $confirm_password) && $newPasswordLen >= 8) {
+                    $this->user->changePassword($user_id, $new_password);
+                    redirect('Pages/seaded');
+                } else {
+                    redirect('Pages/seaded');
+                }
 			}
 		} else {
 			redirect('Pages/seaded');
@@ -226,16 +232,19 @@ Class UserController extends CI_Controller
 		
 		$this->form_validation->set_rules('new_age', 'Age', 'trim|required|numeric');
 		$age = $this->input->post('new_age');
-		
-		$user_id = $this->session->userdata('logged_in')["user_id"];
-		
-		if ($this->form_validation->run())
-		{
-			$this->user->changeAge($user_id, $age);
-			redirect('Pages/seaded');
-		} else {
-			redirect('Pages/seaded');
-		}
+
+		if ($age < 120 && $age > 0) {
+            $user_id = $this->session->userdata('logged_in')["user_id"];
+
+            if ($this->form_validation->run()) {
+                $this->user->changeAge($user_id, $age);
+                redirect('Pages/seaded');
+            } else {
+                redirect('Pages/seaded');
+            }
+        } else {
+            redirect('Pages/seaded');
+        }
 	}
 	
 	public function changeHeight()
@@ -244,16 +253,20 @@ Class UserController extends CI_Controller
 		
 		$this->form_validation->set_rules('new_height', 'Height', 'trim|required|numeric');
 		$height = $this->input->post('new_height');
-		
-		$user_id = $this->session->userdata('logged_in')["user_id"];
-		
-		if ($this->form_validation->run())
-		{
-			$this->user->changeHeight($user_id, $height);
-			redirect('Pages/seaded');
-		} else {
-			redirect('Pages/seaded');
-		}
+
+		if ($height < 250 && $height > 50){
+            $user_id = $this->session->userdata('logged_in')["user_id"];
+
+            if ($this->form_validation->run())
+            {
+                $this->user->changeHeight($user_id, $height);
+                redirect('Pages/seaded');
+            } else {
+                redirect('Pages/seaded');
+            }
+        } else {
+            redirect('Pages/seaded');
+        }
 	}
 	
 	public function changeWeight()
@@ -262,16 +275,20 @@ Class UserController extends CI_Controller
 		
 		$this->form_validation->set_rules('new_weight', 'Weight', 'trim|required|numeric');
 		$weight = $this->input->post('new_weight');
-		
-		$user_id = $this->session->userdata('logged_in')["user_id"];
-		
-		if ($this->form_validation->run())
-		{
-			$this->user->changeWeight($user_id, $weight);
-			redirect('Pages/seaded');
-		} else {
-			redirect('Pages/seaded');
-		}
+
+		if ($weight < 500 && $weight > 20){
+            $user_id = $this->session->userdata('logged_in')["user_id"];
+
+            if ($this->form_validation->run())
+            {
+                $this->user->changeWeight($user_id, $weight);
+                redirect('Pages/seaded');
+            } else {
+                redirect('Pages/seaded');
+            }
+        } else {
+            redirect('Pages/seaded');
+        }
 	}
 	
 	public function changeWeightGoal()
@@ -280,16 +297,20 @@ Class UserController extends CI_Controller
 		
 		$this->form_validation->set_rules('new_goal', 'Weight goal', 'trim|required|numeric');
 		$goal = $this->input->post('new_goal');
-		
-		$user_id = $this->session->userdata('logged_in')["user_id"];
-		
-		if ($this->form_validation->run())
-		{
-			$this->user->changeWeightGoal($user_id, $goal);
-			redirect('Pages/seaded');
-		} else {
-			redirect('Pages/seaded');
-		}
+
+		if ($goal < 500 && $goal > 20) {
+            $user_id = $this->session->userdata('logged_in')["user_id"];
+
+            if ($this->form_validation->run())
+            {
+                $this->user->changeWeightGoal($user_id, $goal);
+                redirect('Pages/seaded');
+            } else {
+                redirect('Pages/seaded');
+            }
+        } else {
+            redirect('Pages/seaded');
+        }
 	}
 	
 }
