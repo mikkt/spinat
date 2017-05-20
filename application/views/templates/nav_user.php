@@ -9,10 +9,9 @@
             </button>
             <a class="navbar-brand" href="<?php echo site_url('pages/'); ?>">Spinat</a>
         </div>
-        <p class="navbar-text navbar-left"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo $username; //$lang_logged_as . " " .  ?> </p>
 
-        <form class="navbar-form navbar-right"><a class="btn btn-danger btn-sm" href="<?php echo site_url('UserController/logout'); ?>"><?php echo $lang_logout; ?></a></form>
         <ul id="navbar" class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>   <?php echo $username; //$lang_logged_as . " " .  ?> </p></li>
             <li><a href="<?php echo site_url('pages/kalender'); ?>"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <?php echo $lang_calendar; ?></a></li><!-- class="active" -->
             <li><a href="<?php echo site_url('pages/toiduained'); ?>"><span class="glyphicon glyphicon-apple" aria-hidden="true"></span> <?php echo $lang_ingredients; ?></a></li>
             <li><a href="<?php echo site_url('pages/seaded'); ?>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <?php echo $lang_settings ?></a></li>
@@ -25,7 +24,7 @@
                 </ul>
             </li>
             <!--<li><a class="btn btn-default btn-sm" href="<?php //echo site_url('UserController/logout'); ?>"><?php //echo $lang_logout; ?></a></li>-->
-
+            <li><p class="btn navbar-btn"><a class="btn-danger btn-sm" href="<?php echo site_url('UserController/logout'); ?>"><?php echo $lang_logout; ?></a></p></li>
         </ul>
 
     </div>
