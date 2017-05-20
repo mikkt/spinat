@@ -161,11 +161,14 @@ Class UserController extends CI_Controller
 
 		if($this->session->userdata('logged_in'))
 		{
-		$this->session->unset_userdata('logged_in');
-		//$this->session->unset_userdata('language');
-		session_destroy();
-		// Kui directib lihtsalt välja, siis keel läheb config['lang'] peale. Nüüd redirectib logout->setlang(hetke_keel)->pealeht
-		redirect('Pages/setLang/' . $this->session->userdata('language'), 'refresh');
+            $this->session->unset_userdata('logged_in');
+            //$this->session->unset_userdata('language');
+            session_destroy();
+            // Kui directib lihtsalt välja, siis keel läheb config['lang'] peale. Nüüd redirectib logout->setlang(hetke_keel)->pealeht
+            if ($this->session->userdata('language'))
+    		    redirect('Pages/setLang/' . $this->session->userdata('language'), 'refresh');
+            else
+                redirect('Pages', 'refresh');
 		}
         if(isset($_REQUEST['logout'])){
 
