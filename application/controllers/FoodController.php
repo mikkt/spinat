@@ -44,6 +44,8 @@ Class FoodController extends CI_Controller
 		    $protein = $this->input->post('protein');
 		    $energy = $this->input->post('energy');
 
+            $existing_id = $this->Ingredient->getIngredientId($foodname)[0]['ingredient_id'];
+
 			$ingredientData = array(
 				'ingredient_name' => $foodname,
 				'carbohydrates' => $carbs,
@@ -52,7 +54,7 @@ Class FoodController extends CI_Controller
 				'ingredient_energy' => $energy,
 			);
 
-			if ($carbs >= 0 && $fat >= 0 && $protein >= 0 && $energy >= 0){
+			if ($carbs >= 0 && $fat >= 0 && $protein >= 0 && $energy >= 0 && !$existing_id){
                 if ($this->Ingredient->insertIngredient($ingredientData))
                 {
                     redirect('Pages/toiduained');

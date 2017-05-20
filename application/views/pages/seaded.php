@@ -14,7 +14,7 @@
                         <tr><td><p class="form-control-static"><?php echo $lang_current_email; ?>:</p></td><td><label class="form-control-static" ><?php echo $user_email; ?></label></td></tr>
                         <?php echo form_open('UserController/changeEmail'); ?>
                         <tr><td><p class="form-control-static"><?php echo $lang_new_email; ?>:</p></td><td><input type="email" id="new_email" class="form-control" name="new_email"></td></tr>
-                        <tr><td colspan="2"><button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $lang_save; ?></button></td></tr>
+                        <tr><td colspan="2"><button class="btn btn-md btn-primary" type="submit"><?php echo $lang_save; ?></button></td></tr>
                         </form>
                     </table>
                 </div>
@@ -29,7 +29,7 @@
                         <tr><td><p class="form-control-static"><?php echo $lang_current_password; ?>:</p></td><td><input type="password" id="current_password" class="form-control" name="current_password"></td></tr>
                         <tr><td><p class="form-control-static"><?php echo $lang_new_password; ?>:</p></td><td><input type="password" id="new_password" class="form-control" name="new_password"></td></tr>
                         <tr><td><p class="form-control-static"><?php echo $lang_repeat_password; ?>:</p></td><td><input type="password" id="newpwdrepeat" class="form-control" name="new_password_repeat"></td></tr>
-                        <tr><td colspan="2"><button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $lang_save; ?></button></td></tr>
+                        <tr><td colspan="2"><button class="btn btn-md btn-primary" type="submit"><?php echo $lang_save; ?></button></td></tr>
                         </form>
                     </table>
                 </div>
