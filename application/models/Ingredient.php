@@ -20,6 +20,7 @@ Class Ingredient extends CI_Model
 	{
 		$this->db->select('ingredient_name, carbohydrates, protein, fat, ingredient_energy');
 		$this->db->from('ingredients_view');
+		$this->db->order_by('ingredient_name', 'asc');
 		$query = $this->db->get();
 		return $query->result();
 	}
