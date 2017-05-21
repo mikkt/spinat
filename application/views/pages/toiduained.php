@@ -8,10 +8,10 @@
                 <table class="table table-bordered" id="foodTable">
                     <tr>
                         <th><?php echo $lang_name; ?></td>
-                        <th><?php echo $lang_calories; ?> (kcal)</td>
-                        <th><?php echo $lang_carbs; ?> (g)</td>
-                        <th><?php echo $lang_fats; ?> (g)</td>
-                        <th><?php echo $lang_proteins; ?> (g)</td>
+                        <th><?php echo $lang_calories; ?></td>
+                        <th><?php echo $lang_carbs; ?></td>
+                        <th><?php echo $lang_fats; ?></td>
+                        <th><?php echo $lang_proteins; ?></td>
                     </tr>
                     <?php foreach($ingredients as $ingredient){?>
                     <tr>
