@@ -41,14 +41,6 @@
 
         <div class="panel-body">
             <div class="row">
-                <!--<div class="col-sm-3">
-                    <p class="form-control-static"><?php echo $lang_age; ?>:</p>
-                    <p class="form-control-static"><?php echo $lang_change_age; ?>:</p>
-					<br />
-					<br />
-                    <p class="form-control-static"><?php echo $lang_goal; ?>:</p>
-                    <p class="form-control-static"><?php echo $lang_change_goal; ?>:</p>
-                </div>-->
                 <div class="col-sm-6">
                     <?php echo form_open('UserController/changeSettings'); ?>
                         <table border="0" class="table">
@@ -73,15 +65,6 @@
                             </tr>
                         </table>
                 </div>
-                <!--
-                <div class="col-sm-3">
-                    <p class="form-control-static"><?php echo $lang_height; ?>:</p>
-                    <p class="form-control-static"><?php echo $lang_change_height; ?>:</p>
-					<br />
-					<br />
-                    <p class="form-control-static"><?php echo $lang_weight; ?>:</p>
-                    <p class="form-control-static"><?php echo $lang_change_weight; ?>:</p>
-                </div>-->
                 <div class="col-sm-6">
                         <table border="0" class="table">
                             <tr>

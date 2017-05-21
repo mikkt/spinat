@@ -58,13 +58,13 @@
 								<th><?php echo $lang_proteins; ?></th>
 							</tr>
 							<?php foreach($meal_ingredients_sum as $meal_ingredient_sum) {?>
-							<tr>
+							<tr class="total-row">
 								<td><?php echo $lang_total; ?></td>
-								<td><?php echo $meal_ingredient_sum->sum_amount;?></td>
-								<td><?php echo $meal_ingredient_sum->sum_ingredient_energy;?></td>
-								<td><?php echo $meal_ingredient_sum->sum_carbohydrates;?></td>
-								<td><?php echo $meal_ingredient_sum->sum_fat;?></td>
-								<td><?php echo $meal_ingredient_sum->sum_protein;?></td>
+								<td data-id="total-amount"><?php echo $meal_ingredient_sum->sum_amount;?></td>
+								<td data-id="total-energy"><?php echo $meal_ingredient_sum->sum_ingredient_energy;?></td>
+								<td data-id="total-carbs"><?php echo $meal_ingredient_sum->sum_carbohydrates;?></td>
+								<td data-id="total-fat"><?php echo $meal_ingredient_sum->sum_fat;?></td>
+								<td data-id="total-protein"><?php echo $meal_ingredient_sum->sum_protein;?></td>
 							</tr>
 							<?php }?>
 						</table>
