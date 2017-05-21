@@ -263,6 +263,29 @@ class Pages extends CI_Controller
 			$calories = $this->User->getDailyCalories($user_id);
 			$this->data['daily_calories'] = $calories;
 			
+			$this->load->model('Ingredient');
+			if ($meal_id_arr)
+			{
+				$meal_id = $meal_id_arr[0]['meal_id'];
+				$meal_calories_obj = $this->Ingredient->getMealSum($meal_id);
+				$meal_calories = $meal_calories_obj[0]->sum_ingredient_energy;
+				$user_calories = $this->User->getDailyCalories($user_id);
+				
+				/*echo '<pre>';
+				print_r($meal_calories);
+				echo '<br /';
+				print_r($user_calories);
+				echo '</pre>';
+				exit;*/
+				
+				if ($meal_calories > $user_calories)
+				{
+					$this->data['over_limit'] = array('over_limit' => TRUE);
+				} else {
+					$this->data['over_limit'] = array('over_limit' => FALSE);
+				}
+			}
+			
 			if ($meal_id_arr)
 			{
 				$meal_sum_arr = $this->Ingredient->getMealSum($meal_id_arr[0]['meal_id']);

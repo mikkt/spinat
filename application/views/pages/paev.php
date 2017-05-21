@@ -73,6 +73,11 @@
 						<a class="btn btn-success text-right" id="removeIngredient"><?php echo $lang_remove_ingredient; ?></a>
 					</div>
 					<div>Sinu päevane kaloraaž on: <?php echo $daily_calories; ?> kcal</div>
+					
+					<?php if ($over_limit = TRUE) { 
+						echo '<div class="alert alert-info">Oled ületanud päevase kaloraaži</div>';
+						} ?>
+						
 				</div>
 				</div>
             </div>
