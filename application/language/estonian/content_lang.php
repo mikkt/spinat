@@ -54,10 +54,10 @@ $lang['snacks'] = 'Suupisted/Snäkid';
 $lang['name'] = 'Nimi';
 $lang['quantity'] = 'Kogus (g)';
 $lang['calories'] = 'Kaloreid 100g kohta';
-$lang['calories_short'] = 'Kaloreid';
-$lang['carbs'] = 'Süsivesikuid';
-$lang['fats'] = 'Rasvu';
-$lang['proteins'] = 'Valke';
+$lang['calories_short'] = 'Kaloreid (kcal)';
+$lang['carbs'] = 'Süsivesikuid (g)';
+$lang['fats'] = 'Rasvu (g)';
+$lang['proteins'] = 'Valke (g)';
 $lang['ingredient_db'] = 'Toiduainete andmebaas';
 $lang['search_ingredient'] = 'Otsi toiduainet';
 $lang['search_help'] = 'Kasuta otsingut, et filtreerida toiduaineid';
@@ -65,7 +65,8 @@ $lang['add_to_menu'] = 'Lisa menüüsse';
 $lang['new_ingredient'] = 'Lisa uus toiduaine';
 $lang['today'] = 'Täna';
 $lang['remove_ingredient'] = 'Eemalda toiduaine menüüst';
-$lang['daily_kcal'] = 'Sinu päevane kaloraaž on: ';
+$lang['daily_kcal'] = 'Teie päevane kaloraaž: ';
+$lang['daily_kcal_tip'] = 'Maksimaalne arv kaloreid, mida soovitame Teil päevas süüa.';
 $lang['total'] = 'Kokku';
 
 // Ingredients

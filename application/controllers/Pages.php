@@ -212,6 +212,7 @@ class Pages extends CI_Controller
 			$data['lang_daily_kcal'] = $this->lang->line('daily_kcal');
 			$data['lang_total'] = $this->lang->line('total');
 			$data['lang_calories_short'] = $this->lang->line('calories_short');
+			$data['lang_kcal_tip'] = $this->lang->line('daily_kcal_tip');
 
 
             // kalender
@@ -271,22 +272,7 @@ class Pages extends CI_Controller
 			{
 				$meal_id = $meal_id_arr[0]['meal_id'];
 				$meal_calories_obj = $this->Ingredient->getMealSum($meal_id);
-				$meal_calories = $meal_calories_obj[0]->sum_ingredient_energy;
-				$user_calories = $this->User->getDailyCalories($user_id);
-				
-				/*echo '<pre>';
-				print_r($meal_calories);
-				echo '<br /';
-				print_r($user_calories);
-				echo '</pre>';
-				exit;*/
-				
-				if ($meal_calories > $user_calories)
-				{
-					$this->data['over_limit'] = array('over_limit' => TRUE);
-				} else {
-					$this->data['over_limit'] = array('over_limit' => FALSE);
-				}
+			
 			}
 			
 			if ($meal_id_arr)

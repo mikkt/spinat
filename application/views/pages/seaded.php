@@ -50,7 +50,7 @@
                     <p class="form-control-static"><?php echo $lang_change_goal; ?>:</p>
                 </div>-->
                 <div class="col-sm-6">
-                    <?php echo form_open('UserController/changeAge'); ?>
+                    <?php echo form_open('UserController/changeSettings'); ?>
                         <table border="0" class="table">
                             <tr>
                                 <td><p class="form-control-static"><?php echo $lang_age; ?>:</p></td>
@@ -60,11 +60,8 @@
                                 <td><p class="form-control-static"><?php echo $lang_change_age; ?>:</p></td>
                                 <td><input type="text" id="new_age" class="form-control" name="new_age"></td>
                             </tr>
-                            <tr><td colspan="2" align="right"><button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button></td></tr>
                         </table>
-                    </form>
 
-					<?php echo form_open('UserController/changeWeightGoal'); ?>
                         <table border="0" class="table">
                             <tr>
                                 <td><p class="form-control-static"><?php echo $lang_goal; ?>:</p></td>
@@ -74,9 +71,7 @@
                                 <td><p class="form-control-static"><?php echo $lang_change_goal; ?>:</p></td>
                                 <td><input type="text" id="new_goal" class="form-control" name="new_goal"></td>
                             </tr>
-                            <tr><td colspan="2" align="right"><button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button></td></tr>
                         </table>
-					</form>
                 </div>
                 <!--
                 <div class="col-sm-3">
@@ -88,7 +83,6 @@
                     <p class="form-control-static"><?php echo $lang_change_weight; ?>:</p>
                 </div>-->
                 <div class="col-sm-6">
-                    <?php echo form_open('UserController/changeHeight'); ?>
                         <table border="0" class="table">
                             <tr>
                                 <td><p class="form-control-static"><?php echo $lang_height; ?>:</p></td>
@@ -98,12 +92,9 @@
                                 <td><p class="form-control-static"><?php echo $lang_change_height; ?>:</p></td>
                                 <td><input type="text" id="new_height" class="form-control" name="new_height"></td>
                             </tr>
-                            <tr><td colspan="2" align="right"><button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button></td></tr>
                         </table>
-                    </form>
 
 
-                    <?php echo form_open('UserController/changeWeight'); ?>
                         <table border="0" class="table">
                             <tr>
                                 <td><p class="form-control-static"><?php echo $lang_weight; ?>:</p></td>
@@ -113,11 +104,11 @@
                                 <td><p class="form-control-static"><?php echo $lang_change_weight; ?>:</p></td>
                                 <td><input type="text" id="new_weight" class="form-control" name="new_weight"></td>
                             </tr>
-                            <tr><td colspan="2" align="right"><button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button></td></tr>
                         </table>
-                    </form>
                 </div>
             </div>
+			<tr><td colspan="4"><button class="btn btn-primary" type="submit"><?php echo $lang_save; ?></button></td></tr>
+			</form>
         </div>
     </div>
     </div>

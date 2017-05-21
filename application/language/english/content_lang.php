@@ -54,10 +54,10 @@ $lang['snacks'] = 'Snacks';
 $lang['name'] = 'Name';
 $lang['quantity'] = 'Quantity (g)';
 $lang['calories'] = 'Calories per 100g';
-$lang['calories_short'] = 'Calories';
-$lang['carbs'] = 'Carbohydrates';
-$lang['fats'] = 'Fats';
-$lang['proteins'] = 'Proteins';
+$lang['calories_short'] = 'Calories (kcal)';
+$lang['carbs'] = 'Carbohydrates (g)';
+$lang['fats'] = 'Fats (g)';
+$lang['proteins'] = 'Proteins (g)';
 $lang['ingredient_db'] = 'Ingredient database';
 $lang['search_ingredient'] = 'Search ingredient';
 $lang['search_help'] = 'Use search to filter ingredients.';
@@ -67,6 +67,7 @@ $lang['today'] = 'Today';
 $lang['remove_ingredient'] = 'Remove ingredient from meal';
 $lang['daily_kcal'] = 'Daily calorie intake: ';
 $lang['total'] = 'Total';
+$lang['daily_kcal_tip'] = 'Maximum amount of calories we recommend.';
 
 // Ingredients
 $lang['different_ingredients'] = 'Number of different ingredients in database';

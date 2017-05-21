@@ -142,7 +142,7 @@ Class User extends CI_Model
 	public function calculateDailyCalories($age, $weight, $height)
 	{
 		$calories = 10 * $weight + 6.25 * $height - 5 * $age + 5;
-		return $calories;
+		return $calories * 1.2;
 	}
 	
 	public function getDailyCalories($user_id)
@@ -155,11 +155,11 @@ Class User extends CI_Model
 		$dailyCalories = $this->calculateDailyCalories($user_data_arr[0]["age"], $weight, $user_data_arr[0]["height"]);
 		if ($weight > $goal)
 		{
-			return $dailyCalories - 100;
+			return $dailyCalories - 150;
 		} else if ($weight = $goal) {
 			return $dailyCalories;
 		} else {
-			return $dailyCalories + 100;
+			return $dailyCalories + 200;
 		}
 		
 	}	

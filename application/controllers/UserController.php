@@ -226,6 +226,46 @@ Class UserController extends CI_Controller
 		}
 	}
 	
+	/*
+	 *	Toitumise seadete muutmine kokku.
+	 */
+	 
+	 public function changeSettings()
+	 {
+		$this->load->library('form_validation');
+		 
+		$this->form_validation->set_rules('new_height', 'Height', 'trim|numeric');
+		$this->form_validation->set_rules('new_weight', 'Weight', 'trim|numeric');
+		$this->form_validation->set_rules('new_weight', 'Weight', 'trim|numeric');
+		$this->form_validation->set_rules('new_goal', 'Weight goal', 'trim|numeric');
+		 
+		$age = $this->input->post('new_age');
+		$height = $this->input->post('new_height');
+		$weight = $this->input->post('new_weight');
+		$goal = $this->input->post('new_goal');
+		
+		$user_id = $this->session->userdata('logged_in')["user_id"];
+		
+		if ($this->form_validation->run()) {
+			
+			if ($age < 120 && $age > 0) {
+				$this->user->changeAge($user_id, $age);
+			}
+			if ($height < 250 && $height > 50) {
+				$this->user->changeHeight($user_id, $height);
+			}
+			if ($weight < 500 && $weight > 20) {
+				$this->user->changeWeight($user_id, $weight);
+			}
+			if ($goal < 500 && $goal > 20) {
+				$this->user->changeWeightGoal($user_id, $goal);
+			}
+			redirect('Pages/seaded');
+		} else {
+			redirect('Pages/seaded');
+		}
+	 }
+/*	
 	public function changeAge()
 	{
 		$this->load->library('form_validation');
@@ -312,6 +352,6 @@ Class UserController extends CI_Controller
             redirect('Pages/seaded');
         }
 	}
-	
+	*/
 }
 		
