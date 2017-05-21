@@ -13,11 +13,11 @@ Class FoodController extends CI_Controller
 	{
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('foodName', 'Toiduaine nimi', 'trim|required|min_length[3]|max_length[50]|alpha');
-		$this->form_validation->set_rules('energy', 'Kalorid 100kcal kohta', 'trim|required|numeric');
-		$this->form_validation->set_rules('carbohydrates', 'Süsivesikud', 'trim|required|numeric');
-		$this->form_validation->set_rules('fat', 'Rasvad', 'trim|required|numeric');
-		$this->form_validation->set_rules('protein', 'Valgud', 'trim|required|numeric');
+		$this->form_validation->set_rules('foodName', 'Toiduaine nimi', 'trim|required|min_length[3]|max_length[50]');
+		$this->form_validation->set_rules('energy', 'Kalorid 100kcal kohta', 'trim|required|greater_than_equal_to[0]');
+		$this->form_validation->set_rules('carbohydrates', 'Süsivesikud', 'trim|required|greater_than_equal_to[0]');
+		$this->form_validation->set_rules('fat', 'Rasvad', 'trim|required|greater_than_equal_to[0]');
+		$this->form_validation->set_rules('protein', 'Valgud', 'trim|required|greater_than_equal_to[0]');
 		
 		/*$ingredientData = array(
 				'ingredient_name' => $this->input->post('foodName'),
@@ -44,8 +44,6 @@ Class FoodController extends CI_Controller
 		    $protein = $this->input->post('protein');
 		    $energy = $this->input->post('energy');
 
-            $existing_id = $this->Ingredient->getIngredientId($foodname)[0]['ingredient_id'];
-
 			$ingredientData = array(
 				'ingredient_name' => $foodname,
 				'carbohydrates' => $carbs,
@@ -54,13 +52,12 @@ Class FoodController extends CI_Controller
 				'ingredient_energy' => $energy,
 			);
 
-			if ($carbs >= 0 && $fat >= 0 && $protein >= 0 && $energy >= 0 && !$existing_id){
-                if ($this->Ingredient->insertIngredient($ingredientData))
-                {
-                    redirect('Pages/toiduained');
-                }
+
+			if ($this->Ingredient->insertIngredient($ingredientData))
+			{
+				redirect('Pages/toiduained');
 			} else {
-			    redirect('Pages/toiduained');
+				redirect('Pages/toiduained');
             }
 		}
 	}

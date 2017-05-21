@@ -1,5 +1,10 @@
 <div class="container">
-    <!-- Example row of columns -->
+	<?php if(validation_errors() != false): ?>
+	<br />
+	<div class="alert alert-info">
+		<strong>Info!</strong> <?php echo validation_errors();?>
+	</div>
+	<?php endif; ?>
     <div class="row">
         <div class="col-md-6">
             <h2><?php echo $lang_text_header; ?></h2>
@@ -25,10 +30,4 @@
 
     </div>
 </div>
-<?php if(validation_errors() != false): ?>
-	<br />
-	<div class="alert alert-info">
-		<strong>Info!</strong> <?php echo validation_errors();?>
-	</div>
-<?php endif; ?>
     <hr>
