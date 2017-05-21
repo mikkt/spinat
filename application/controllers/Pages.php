@@ -209,6 +209,9 @@ class Pages extends CI_Controller
             $data['lang_new_ingredient'] = $this->lang->line('new_ingredient');
             $data['lang_today'] = $this->lang->line('today');
 			$data['lang_remove_ingredient'] = $this->lang->line('remove_ingredient');
+			$data['lang_daily_kcal'] = $this->lang->line('daily_kcal');
+			$data['lang_total'] = $this->lang->line('total');
+			$data['lang_calories_short'] = $this->lang->line('calories_short');
 
 
             // kalender

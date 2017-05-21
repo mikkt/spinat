@@ -52,14 +52,14 @@
 							<tr>
 								<th></th>
 								<th><?php echo $lang_quantity; ?></th>
-								<th>Kaloreid</th>
-								<th>Süsivesikuid</th>
-								<th>Rasvu</th>
-								<th>Valke</th>
+								<th><?php echo $lang_calories_short; ?></th>
+								<th><?php echo $lang_carbs; ?></th>
+								<th><?php echo $lang_fats; ?></th>
+								<th><?php echo $lang_proteins; ?></th>
 							</tr>
 							<?php foreach($meal_ingredients_sum as $meal_ingredient_sum) {?>
 							<tr>
-								<td>Kokku</td>
+								<td><?php echo $lang_total; ?></td>
 								<td><?php echo $meal_ingredient_sum->sum_amount;?></td>
 								<td><?php echo $meal_ingredient_sum->sum_ingredient_energy;?></td>
 								<td><?php echo $meal_ingredient_sum->sum_carbohydrates;?></td>
@@ -72,12 +72,16 @@
 					<div>
 						<a class="btn btn-success text-right" id="removeIngredient"><?php echo $lang_remove_ingredient; ?></a>
 					</div>
+<<<<<<< HEAD
 					<div>Sinu päevane kaloraaž on: <?php echo $daily_calories; ?> kcal</div>
 					
 					<?php if ($over_limit = TRUE) { 
 						echo '<div class="alert alert-info">Oled ületanud päevase kaloraaži</div>';
 						} ?>
 						
+=======
+					<div><?php echo $lang_daily_kcal. " " . $daily_calories; ?> kcal</div>
+>>>>>>> 56b610a2a1637921968d441e07e641290cbc3a0f
 				</div>
 				</div>
             </div>

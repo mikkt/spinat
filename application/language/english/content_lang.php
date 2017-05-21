@@ -54,6 +54,7 @@ $lang['snacks'] = 'Snacks';
 $lang['name'] = 'Name';
 $lang['quantity'] = 'Quantity (g)';
 $lang['calories'] = 'Calories per 100g';
+$lang['calories_short'] = 'Calories';
 $lang['carbs'] = 'Carbohydrates';
 $lang['fats'] = 'Fats';
 $lang['proteins'] = 'Proteins';
@@ -64,6 +65,8 @@ $lang['add_to_menu'] = 'Add to menu';
 $lang['new_ingredient'] = 'Add new ingredient';
 $lang['today'] = 'Today';
 $lang['remove_ingredient'] = 'Remove ingredient from meal';
+$lang['daily_kcal'] = 'Daily calorie intake: ';
+$lang['total'] = 'Total';
 
 // Ingredients
 $lang['different_ingredients'] = 'Number of different ingredients in database';

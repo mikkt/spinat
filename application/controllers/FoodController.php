@@ -38,19 +38,30 @@ Class FoodController extends CI_Controller
 		}
 		else
 		{
+		    $foodname = $this->input->post('foodName');
+		    $carbs = $this->input->post('carbohydrates');
+		    $fat = $this->input->post('fat');
+		    $protein = $this->input->post('protein');
+		    $energy = $this->input->post('energy');
+
+            $existing_id = $this->Ingredient->getIngredientId($foodname)[0]['ingredient_id'];
+
 			$ingredientData = array(
-				'ingredient_name' => $this->input->post('foodName'),
-				'carbohydrates' => $this->input->post('carbohydrates'),
-				'fat' => $this->input->post('fat'),
-				'protein' => $this->input->post('protein'),
-				'ingredient_energy' => $this->input->post('energy'),
+				'ingredient_name' => $foodname,
+				'carbohydrates' => $carbs,
+				'fat' => $fat,
+				'protein' => $protein,
+				'ingredient_energy' => $energy,
 			);
 
-			
-			if ($this->Ingredient->insertIngredient($ingredientData))
-			{
-				redirect('Pages/toiduained');
-			}
+			if ($carbs >= 0 && $fat >= 0 && $protein >= 0 && $energy >= 0 && !$existing_id){
+                if ($this->Ingredient->insertIngredient($ingredientData))
+                {
+                    redirect('Pages/toiduained');
+                }
+			} else {
+			    redirect('Pages/toiduained');
+            }
 		}
 	}
 	
@@ -66,27 +77,25 @@ Class FoodController extends CI_Controller
 		
 		$ingredient_data = $this->Ingredient->getIngredientData($ingredientName);
 		
-		
-		if (empty($meal_id_arr)) 
-		{
-			$this->Ingredient->createMeal($user_id, 1, $date);
-			$meal_id = $this->Ingredient->getMealId($user_id, $date)[0]['meal_id'];
-			$this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
-			$this->output->set_content_type('application/json')->set_output(json_encode($ingredient_data));
-		} else {
-			$meal_id = $meal_id_arr[0]['meal_id'];
-			$checkIngredient = $this->Ingredient->checkMealIngredient($meal_id, $ingredientName);
-			if ($checkIngredient)
-			{
-				$this->Ingredient->increaseIngredientAmount($meal_id, $ingredient_id, $quantity);
-				$response = array('ingredient_energy' => -1); // :DDDDDD workaround
-				$this->output->set_content_type('application/json')->set_output(json_encode($response));
-			} else {
-				$this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
-				$this->output->set_content_type('application/json')->set_output(json_encode($ingredient_data));
-			}
-		}
-		
+		if ($quantity < 10000 && $quantity > 0) {
+            if (empty($meal_id_arr)) {
+                $this->Ingredient->createMeal($user_id, 1, $date);
+                $meal_id = $this->Ingredient->getMealId($user_id, $date)[0]['meal_id'];
+                $this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
+                $this->output->set_content_type('application/json')->set_output(json_encode($ingredient_data));
+            } else {
+                $meal_id = $meal_id_arr[0]['meal_id'];
+                $checkIngredient = $this->Ingredient->checkMealIngredient($meal_id, $ingredientName);
+                if ($checkIngredient) {
+                    $this->Ingredient->increaseIngredientAmount($meal_id, $ingredient_id, $quantity);
+                    $response = array('ingredient_energy' => -1); // :DDDDDD workaround
+                    $this->output->set_content_type('application/json')->set_output(json_encode($response));
+                } else {
+                    $this->Ingredient->addIngredientToMeal($meal_id, $ingredient_id, $quantity);
+                    $this->output->set_content_type('application/json')->set_output(json_encode($ingredient_data));
+                }
+            }
+        }
 	}
 	
 	public function removeMealIngredient()
